@@ -14,5 +14,7 @@
 
 
 <ion-content padding>
-
+  <ion-list *ngFor="let data of datas; let i = index" no-lines>
+    <ion-item>{{data.shopNo}} {{data.name}} <button (click) = detail(data.shopNo)>상세히</button></ion-item>
+  </ion-list>
 </ion-content>
