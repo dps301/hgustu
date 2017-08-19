@@ -7,22 +7,17 @@ import { HttpService } from '../services/http.service';
 import { HttpModule } from "@angular/http";
 import { ServerAddr } from '../services/server.addr';
 
-
 import { MyApp } from './app.component';
 import { ContainerPageModule } from '../pages/container/container.module';
-import { ShopPageModule } from '../pages/shop/shop.module';
-import { ShopDetailPageModule } from '../pages/shop-detail/shop-detail.module';
+
 @NgModule({
   declarations: [
     MyApp,
-    // ShopPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     ContainerPageModule,
-    ShopPageModule,
-    ShopDetailPageModule,
     HttpModule,
     
   ],

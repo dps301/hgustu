@@ -1,22 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { HttpService } from '../../services/http.service';
-
-/**
- * Generated class for the ShopDetailPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { Slides } from 'ionic-angular';
 
 @Component({
   selector: 'page-shop-detail',
   templateUrl: 'shop-detail.html',
 })
 export class ShopDetailPage {
-
-  shopNo:any;
-  datas:any = [];
+  @ViewChild(Slides) slides: Slides;
+  sampleImg: Array<any> = ["assets/images/samples/1.png", "assets/images/samples/2.png" ,"assets/images/samples/3.png","assets/images/samples/4.png"];
+  shopNo: any;
+  datas: any = [];
+  
   constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService) {
   }
 

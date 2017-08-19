@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ContainerPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { ShopPage } from '../shop/shop';
+import { ShopDetailPage } from '../shop-detail/shop-detail';
 
 @IonicPage()
 @Component({
@@ -14,12 +9,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'container.html',
 })
 export class ContainerPage {
-
+  rootPage: any = ShopDetailPage;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ContainerPage');
   }
 
 }
