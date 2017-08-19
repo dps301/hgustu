@@ -14,7 +14,48 @@
 
 
 <ion-content padding>
-  <ion-list *ngFor="let data of datas; let i = index" no-lines>
-    <ion-item>{{data.shopNo}} {{data.name}} <button (click) = detail(data.shopNo)>상세히</button></ion-item>
-  </ion-list>
+    <ion-grid>
+        <ion-row>
+          <ion-col>
+              <ion-list>
+                  <ion-item>
+                    <ion-label>지역</ion-label>
+                    <ion-select  [(ngModel)]="loca_choice" >
+                        <ion-option value="0" >전체</ion-option>
+                      <ion-option value={{data.no}} *ngFor="let data of loca">{{data.name}}</ion-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-list>
+          </ion-col>
+          <ion-col>
+              <ion-list>
+                  <ion-item>
+                    <ion-label>분류</ion-label>
+                    <ion-select  [(ngModel)]="type_choice" >
+                        <ion-option value="0" >전체</ion-option>
+                      <ion-option value={{data.no}} *ngFor="let data of type">{{data.name}}</ion-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-list>
+          </ion-col>
+          <ion-col>
+            <button (click)="refresh()">조회</button>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+    
+      
+
+    <ion-row>
+        <ion-col>번호</ion-col>
+        <ion-col>이름</ion-col>
+        <ion-col>타입</ion-col>
+        <ion-col>위치</ion-col>
+    </ion-row>
+    <ion-row (click) = detail(data.shopNo) *ngFor="let data of datas">
+        <ion-col>{{data.shopNo}}</ion-col>
+        <ion-col> {{data.name}} </ion-col>
+        <ion-col>{{data.type}} </ion-col>
+        <ion-col>{{data.loca}}</ion-col>
+    </ion-row>
 </ion-content>

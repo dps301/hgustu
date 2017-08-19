@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { HttpService } from '../../services/http.service';
 
 /**
  * Generated class for the ShopDetailPage page.
@@ -15,12 +16,18 @@ import { NavController, NavParams } from 'ionic-angular';
 export class ShopDetailPage {
 
   shopNo:any;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  datas:any = [];
+  constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService) {
   }
 
   ionViewDidLoad() {
-    this.shopNo = this.navParams.get('storeNo');
+    this.shopNo = this.navParams.get('shopNo');
+    this.http.get('/shop/detail?shopNo='+this.shopNo)
+    .subscribe(data =>{
+        this.datas = data.json();
+        console.log(this.datas)
+    })
+    
   }
 
 }
