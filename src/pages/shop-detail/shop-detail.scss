@@ -111,7 +111,14 @@ page-shop-detail {
                 }
             }
             &.complain {
+                display: flex;
                 min-height: 250px;
+
+                textarea {
+                    flex: 1;
+                    border: none;
+                    background: transparent;
+                }
             }
         }
     

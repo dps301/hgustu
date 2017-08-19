@@ -27,7 +27,7 @@
       <div class="btn">
         <img src="assets/images/button_call.png" alt="">전화하기
       </div>
-      <div class="btn">
+      <div class="btn" (click)="showComplain = !showComplain">
         <img src="assets/images/button_ask.png" alt="">건의하기
       </div>
     </div>
@@ -78,21 +78,23 @@
     <div class="common-content">
       바비레드
     </div>
-    <div class="common-title">
-      <div class="title-text">
-        건의내용
+    <ng-container *ngIf="showComplain">
+      <div class="common-title">
+        <div class="title-text">
+          건의내용
+        </div>
+        <div class="line-img">
+          <img src="assets/images/line.png" alt="">
+        </div>
       </div>
-      <div class="line-img">
-        <img src="assets/images/line.png" alt="">
+      <div class="common-content complain">
+        <textarea rows="" cols=""></textarea>
       </div>
-    </div>
-    <div class="common-content complain">
-      밥이 너무 질어요
-    </div>
-    <div class="complain-btn">
-      <img src="assets/images/button_ask.png" alt=""> 건의하기
-    </div>
-    {{datas.no}}
-    {{datas.name}}
+      <div class="complain-btn">
+        <img src="assets/images/button_ask.png" alt=""> 건의하기
+      </div>
+    </ng-container>
+    <!-- {{datas.no}}
+    {{datas.name}} -->
   </div>
 </ion-content>

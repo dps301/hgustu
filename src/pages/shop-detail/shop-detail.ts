@@ -17,22 +17,56 @@ export class ShopDetailPage {
   datas: any = [];
   map: any;
   mapOptions = {
-    center: new naver.maps.LatLng(37.3595704, 127.105399),
+    center: new naver.maps.LatLng(36.0190335, 129.3433895),
     zoom: 10
   };
+  marker: any;
+  infoWindow: any;
+  showComplain: boolean = true;
   
   constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService) {
   }
 
   ionViewDidLoad() {
     this.map = new naver.maps.Map('map', this.mapOptions);
-    
+
     this.shopNo = this.navParams.get('shopNo');
     this.http.get('/shop/detail?shopNo='+this.shopNo)
     .subscribe(data =>{
         this.datas = data.json();
         console.log(this.datas)
-    })
+    });
+
+    this.setMarker(36.0190335, 129.3433895);
   }
 
+  setMarker(lat, lng) {
+    this.marker = new naver.maps.Marker({
+      position: new naver.maps.LatLng(lat, lng),
+      map: this.map,
+    });
+      
+    this.infoWindow = new naver.maps.InfoWindow({
+      content: [
+        '<div style="padding: 7px 10px; max-width: 300px;">',
+        '   <div style="font-size: 18px; font-weight: 600; margin: 3px 0px;">' + '바비레드' + ' </div>',
+        '   <div style="font-size: 15px; margin: 3px 0px;">'+'tel: ' + '054-1234-1234' + '</div>',
+        '</div>'].join(''),
+      borderWidth: 1,
+      borderColor: "#A3BDD7",
+    });
+
+    naver.maps.Event.addListener(this.marker, 'click', this.getClickHandler());
+  }
+
+  getClickHandler() {
+    return (e) => {
+      if (this.infoWindow.getMap()) {
+        this.infoWindow.close();
+      } 
+      else {
+        this.infoWindow.open(this.map, this.marker);
+      }
+    }
+  }
 }
