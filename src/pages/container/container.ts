@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ShopPage } from '../shop/shop';
 import { ShopDetailPage } from '../shop-detail/shop-detail';
+import { CouponListPage } from '../coupon-list/coupon-list';
 
 @IonicPage()
 @Component({
@@ -9,7 +10,7 @@ import { ShopDetailPage } from '../shop-detail/shop-detail';
   templateUrl: 'container.html',
 })
 export class ContainerPage {
-  rootPage: any = ShopDetailPage;
+  rootPage: any = CouponListPage;
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
