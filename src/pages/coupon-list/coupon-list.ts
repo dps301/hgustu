@@ -16,6 +16,8 @@ import { HttpService } from '../../services/http.service';
 })
 export class CouponListPage {
   coupons:any =[];
+  userNo:any;
+  couponDetail:any=0;
   constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService) {
   }
 
@@ -25,13 +27,14 @@ export class CouponListPage {
   }
 
   load() {
-    this.http.get('/coupon?userNo=1')
+    this.userNo = this.navParams.get('userNo');
+    this.http.get('/coupon?userNo='+this.userNo)
     .subscribe(data =>{
         this.coupons = data.json();
     })
   }
-  detail(coupon_no) {
-
+  detail(coupon) {
+    this.couponDetail = coupon
   }
   dt(date) {
     return date.substring(0, 10)

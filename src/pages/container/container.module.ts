@@ -4,6 +4,7 @@ import { ContainerPage } from './container';
 import { ShopPageModule } from '../shop/shop.module';
 import { ShopDetailPageModule } from '../shop-detail/shop-detail.module';
 import { CouponListPageModule } from '../coupon-list/coupon-list.module';
+import { CalendarPageModule } from '../calendar/calendar.module';
 import { LoginPageModule } from '../login/login.module';
 
 @NgModule({
@@ -15,7 +16,8 @@ import { LoginPageModule } from '../login/login.module';
     ShopPageModule,
     ShopDetailPageModule,
     CouponListPageModule,
-    LoginPageModule
+    LoginPageModule,
+    CalendarPageModule
   ],
 })
 export class ContainerPageModule {}

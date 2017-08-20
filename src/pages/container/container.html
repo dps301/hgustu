@@ -1,8 +1,66 @@
-<!-- <ion-header>
-  <ion-navbar>
-    <ion-title>container</ion-title>
-  </ion-navbar>
-</ion-header> -->
-<ion-content>
-  <ion-nav [root]="rootPage"></ion-nav>
-</ion-content>
+<!--
+  Generated template for the MainPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    
+      <ion-navbar>
+        <ion-title>main</ion-title>
+      </ion-navbar>
+    
+    </ion-header>
+    
+    
+    <ion-content padding>
+        <ion-row>
+            <ion-col>
+              신청 예약
+            </ion-col>
+            <ion-col  (click)="move('notice')">
+              공지
+            </ion-col>
+            <ion-col  (click)="move('complaint')">
+              민원
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col (click)="move(3)">
+              달력
+            </ion-col>
+            <ion-col (click)="move('shop')">
+              HGU샵
+            </ion-col>
+            <ion-col>
+              SEAL
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+              한동피디아
+            </ion-col>
+            <ion-col (click)="move('form')">
+              설문조사
+            </ion-col>
+            <ion-col>
+              한동기도네트워크
+            </ion-col>
+        </ion-row>
+        <span>
+          버스
+        </span>
+        <span>
+          총학 페이스북
+        </span>
+        <span>
+          총학 홈페이지
+        </span>
+        <span>
+          전화연결
+        </span>
+        <span (click)="moveCoupon()">
+          My Coupon
+        </span>
+    </ion-content>
+    

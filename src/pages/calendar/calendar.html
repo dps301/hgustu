@@ -1,0 +1,44 @@
+<!--
+  Generated template for the CalendarPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>calendar</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row>
+    <ion-col> 주차  </ion-col>
+    <ion-col>  일  </ion-col>
+    <ion-col>  월  </ion-col>
+    <ion-col>  화  </ion-col>
+    <ion-col>  수  </ion-col>
+    <ion-col>  목  </ion-col>
+    <ion-col>  금  </ion-col>
+    <ion-col>  토  </ion-col>    
+  </ion-row>
+  <ion-row *ngFor="let weekData of item; let i = index">
+    <p>{{i+1}}주차
+      <ion-col *ngFor="let data of weekData.week" (click)="detail(data)">
+          <span  *ngFor="let day of data">
+            {{day.title}}
+          </span>
+      </ion-col>
+  </ion-row>
+  <div *ngIf="detailData!=0">
+    <span  *ngFor="let day of detailData">
+        <div (click)="choice(day)">{{day.title}}</div>
+      </span>
+  </div>
+  <p>
+  <div *ngIf="choose!=0">
+      {{choose.title}} {{choose.content}}
+  </div>
+</ion-content>

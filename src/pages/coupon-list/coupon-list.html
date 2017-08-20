@@ -14,10 +14,13 @@
 
 
 <ion-content padding>
-    <ion-row (click) = detail(coupon.coupon_no) *ngFor="let coupon of coupons">
+    <ion-row (click) = detail(coupon) *ngFor="let coupon of coupons">
         <ion-col>{{coupon.coupon_no}}</ion-col>
         <ion-col> {{coupon.shopName}} </ion-col>
         <ion-col>{{coupon.amt}} </ion-col>
         <ion-col>{{dt(coupon.expDttm)}}</ion-col>
       </ion-row>
+      <div *ngIf="couponDetail!=0">
+        {{couponDetail.shopName}}
+      </div>
 </ion-content>

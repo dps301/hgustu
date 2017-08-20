@@ -4,6 +4,7 @@ import { ShopPage } from '../shop/shop';
 import { ShopDetailPage } from '../shop-detail/shop-detail';
 import { CouponListPage } from '../coupon-list/coupon-list';
 import { LoginPage } from '../login/login';
+import { CalendarPage } from '../calendar/calendar';
 
 @IonicPage()
 @Component({
@@ -11,12 +12,19 @@ import { LoginPage } from '../login/login';
   templateUrl: 'container.html',
 })
 export class ContainerPage {
-  rootPage: any = ShopPage;
-  
+  page = ['','','',CalendarPage];
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
+  }
+  move(link) {
+    
+    this.navCtrl.push(this.page[link]);
+  }
+  moveCoupon() {
+    this.navCtrl.push(CouponListPage,{userNo:1});
   }
 
 }
