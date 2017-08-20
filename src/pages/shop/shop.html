@@ -6,7 +6,7 @@
                   <ion-item>
                     <ion-label>지역</ion-label>
                     <ion-select  [(ngModel)]="loca_choice" >
-                        <ion-option value="0" >전체</ion-option>
+                      <ion-option value="0" >전체</ion-option>
                       <ion-option value={{data.no}} *ngFor="let data of loca">{{data.name}}</ion-option>
                     </ion-select>
                   </ion-item>
@@ -17,7 +17,7 @@
                   <ion-item>
                     <ion-label>분류</ion-label>
                     <ion-select  [(ngModel)]="type_choice" >
-                        <ion-option value="0" >전체</ion-option>
+                      <ion-option value="0" >전체</ion-option>
                       <ion-option value={{data.no}} *ngFor="let data of type">{{data.name}}</ion-option>
                     </ion-select>
                   </ion-item>

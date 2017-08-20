@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ShopPage } from '../shop/shop';
 import { ShopDetailPage } from '../shop-detail/shop-detail';
 import { CouponListPage } from '../coupon-list/coupon-list';
+import { LoginPage } from '../login/login';
 
 @IonicPage()
 @Component({

@@ -4,6 +4,7 @@ import { ContainerPage } from './container';
 import { ShopPageModule } from '../shop/shop.module';
 import { ShopDetailPageModule } from '../shop-detail/shop-detail.module';
 import { CouponListPageModule } from '../coupon-list/coupon-list.module';
+import { LoginPageModule } from '../login/login.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { CouponListPageModule } from '../coupon-list/coupon-list.module';
     IonicPageModule.forChild(ContainerPage),
     ShopPageModule,
     ShopDetailPageModule,
-    CouponListPageModule
+    CouponListPageModule,
+    LoginPageModule
   ],
 })
 export class ContainerPageModule {}
