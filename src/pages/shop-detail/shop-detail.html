@@ -1,36 +1,62 @@
 <ion-content>
   <div class="store-images">
     <ion-slides pager="true">
-      <ion-slide *ngFor="let item of sampleImg">
-        <div class="img-container">
-          <img [src]="item" alt="">
-        </div>
+      <ion-slide>
+          <div class="img-container">
+              <img [src]="datas.img1" alt="">
+          </div>
+      </ion-slide>
+      <ion-slide>
+          <div class="img-container">
+              <img [src]="datas.img2" alt="">
+          </div>
+      </ion-slide>
+      <ion-slide>
+          <div class="img-container">
+              <img [src]="datas.img3" alt="">
+          </div>
       </ion-slide>
     </ion-slides>
     <div class="header-content">
       <div class="store-name">
-        바비레드
+        {{datas.name}}
       </div>
-      <div class="service-time">
+      <!-- <div class="service-time">
         주중 10:00 ~ 20:00
-      </div>
-      <div class="service-time etc">
+      </div> -->
+      <!-- <div class="service-time etc">
         일요일 휴무
-      </div>
+      </div> -->
       <div class="store-info">
-        음식점 양덕동
+        {{datas.type}} {{datas.loca}}
       </div>
     </div>
   </div>
   <div class="detail-content">
     <div class="contact-btns">
       <div class="btn">
-        <img src="assets/images/button_call.png" alt="">전화하기
+        <a href="tel:{{datas.call}}"><img src="assets/images/button_call.png" alt="">전화하기</a>
       </div>
       <div class="btn" (click)="showComplain = !showComplain">
         <img src="assets/images/button_ask.png" alt="">건의하기
       </div>
     </div>
+    <ng-container *ngIf="showComplain">
+        <div class="common-title">
+          <div class="title-text">
+            건의내용
+          </div>
+          <div class="line-img">
+            <img src="assets/images/line.png" alt="">
+          </div>
+        </div>
+        <div class="common-content complain">
+          <textarea rows="" cols=""></textarea>
+        </div>
+        <div class="complain-btn">
+          <img src="assets/images/button_ask.png" alt=""> 건의하기
+        </div>
+      </ng-container>
     <div class="common-title">
       <div class="title-text">
         HGU샵 혜택
@@ -40,7 +66,7 @@
       </div>
     </div>
     <div class="common-content service">
-      학생증 지참시 20% 할인 및 음료 증정
+      {{datas.contents}}
     </div>
     <div class="common-title">
       <div class="title-text">
@@ -52,7 +78,7 @@
     </div>
     <div class="common-content map">
       <div>
-        경북 포항시 북구 장량로 174번길 19
+        {{datas.address}}
       </div>
       <div id="map" style="width:100%;height:400px;"></div>
     </div>
@@ -65,7 +91,7 @@
       </div>
     </div>
     <div class="common-content">
-      경북 포항시 북구 장량로 174번길 19
+      {{datas.name}}
     </div>
     <div class="common-title">
       <div class="title-text">
@@ -76,25 +102,8 @@
       </div>
     </div>
     <div class="common-content">
-      바비레드
+        {{datas.name}}
     </div>
-    <ng-container *ngIf="showComplain">
-      <div class="common-title">
-        <div class="title-text">
-          건의내용
-        </div>
-        <div class="line-img">
-          <img src="assets/images/line.png" alt="">
-        </div>
-      </div>
-      <div class="common-content complain">
-        <textarea rows="" cols=""></textarea>
-      </div>
-      <div class="complain-btn">
-        <img src="assets/images/button_ask.png" alt=""> 건의하기
-      </div>
-    </ng-container>
-    <!-- {{datas.no}}
-    {{datas.name}} -->
+    
   </div>
 </ion-content>

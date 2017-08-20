@@ -16,31 +16,34 @@ export class ShopDetailPage {
   shopNo: any;
   datas: any = [];
   map: any;
-  mapOptions = {
-    center: new naver.maps.LatLng(36.0190335, 129.3433895),
-    zoom: 10
-  };
+  mapOptions:any;
   marker: any;
   infoWindow: any;
-  showComplain: boolean = true;
+  showComplain: boolean = false;
   
   constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService) {
   }
 
   ionViewDidLoad() {
-    this.map = new naver.maps.Map('map', this.mapOptions);
+    
 
     this.shopNo = this.navParams.get('shopNo');
     this.http.get('/shop/detail?shopNo='+this.shopNo)
     .subscribe(data =>{
         this.datas = data.json();
         console.log(this.datas)
+        this.mapOptions = {
+          center: new naver.maps.LatLng(this.datas.x,this.datas.y),
+          zoom: 10
+        };
+        this.map = new naver.maps.Map('map', this.mapOptions);
+        this.setMarker(this.datas.x, this.datas.y,this.datas.name,this.datas.call);
     });
 
-    this.setMarker(36.0190335, 129.3433895);
+    
   }
 
-  setMarker(lat, lng) {
+  setMarker(lat, lng,name, call) {
     this.marker = new naver.maps.Marker({
       position: new naver.maps.LatLng(lat, lng),
       map: this.map,
@@ -49,8 +52,8 @@ export class ShopDetailPage {
     this.infoWindow = new naver.maps.InfoWindow({
       content: [
         '<div style="padding: 7px 10px; max-width: 300px;">',
-        '   <div style="font-size: 18px; font-weight: 600; margin: 3px 0px;">' + '바비레드' + ' </div>',
-        '   <div style="font-size: 15px; margin: 3px 0px;">'+'tel: ' + '054-1234-1234' + '</div>',
+        '   <div style="font-size: 18px; font-weight: 600; margin: 3px 0px;">' + name + ' </div>',
+        '   <div style="font-size: 15px; margin: 3px 0px;">'+'tel: ' + call + '</div>',
         '</div>'].join(''),
       borderWidth: 1,
       borderColor: "#A3BDD7",

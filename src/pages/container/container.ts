@@ -11,7 +11,7 @@ import { LoginPage } from '../login/login';
   templateUrl: 'container.html',
 })
 export class ContainerPage {
-  rootPage: any = CouponListPage;
+  rootPage: any = ShopPage;
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
