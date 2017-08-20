@@ -62,12 +62,14 @@ page-shop-detail {
                 height: 250px;
                 z-index: 2;
                 background: black;
+                overflow: hidden;
 
                 img {
                     z-index: 1;
-                    height: auto;
-                    width: 100%;
                     opacity: 0.6;
+                    height: 100%; 
+                    width: 100%; 
+                    object-fit: cover;
                 }
             }
         }

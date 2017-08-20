@@ -12,19 +12,18 @@ import { CalendarPage } from '../calendar/calendar';
   templateUrl: 'container.html',
 })
 export class ContainerPage {
-  page = ['','','',CalendarPage];
+  page = {"shop": ShopPage, "calendar": CalendarPage};
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.moveCoupon();
   }
 
   ionViewDidLoad() {
   }
   move(link) {
-    
     this.navCtrl.push(this.page[link]);
   }
   moveCoupon() {
-    this.navCtrl.push(CouponListPage,{userNo:1});
+    this.navCtrl.push(CouponListPage, {userNo:1});
   }
-
 }

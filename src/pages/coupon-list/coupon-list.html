@@ -1,26 +1,37 @@
-<!--
-  Generated template for the CouponListPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>coupon-list</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-    <ion-row (click) = detail(coupon) *ngFor="let coupon of coupons">
-        <ion-col>{{coupon.coupon_no}}</ion-col>
-        <ion-col> {{coupon.shopName}} </ion-col>
-        <ion-col>{{coupon.amt}} </ion-col>
-        <ion-col>{{dt(coupon.expDttm)}}</ion-col>
-      </ion-row>
-      <div *ngIf="couponDetail!=0">
-        {{couponDetail.shopName}}
+<ion-content>
+  <div class="title">
+    My Coupon
+  </div>
+  <ion-row class="row-header">
+    <ion-col col-1>
+    </ion-col>
+    <ion-col col-4>
+      업체
+    </ion-col>
+    <ion-col col-3>
+      금액
+    </ion-col>
+    <ion-col col-3>
+      유효기간
+    </ion-col>
+  </ion-row>
+  <ion-row class="row-content" (click)="detail(coupon)" *ngFor="let coupon of coupons; let i = index">
+    <ion-col col-1 class="index">{{i + 1}}</ion-col>
+    <ion-col col-4 class="name">{{coupon.shopName}}</ion-col>
+    <ion-col col-3 class="amt">{{coupon.amt | number}}</ion-col>
+    <ion-col col-3 class="amt">{{dt(coupon.expDttm)}}</ion-col>
+    </ion-row>
+    <div class="coupon-alert" *ngIf="couponDetail != 0">
+      <div class="content">
+        <div>{{couponDetail.shopName}}</div>
+        <div>{{couponDetail.amt | number}}</div>
+        <div>{{dt(couponDetail.expDttm)}}</div>
       </div>
+      <div class="use-btn">
+        사용하기
+      </div>
+    </div>
+    <div class="backdrop" *ngIf="couponDetail != 0" (click)="couponDetail = 0">
+      
+    </div>
 </ion-content>
