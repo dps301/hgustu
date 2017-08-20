@@ -15,7 +15,6 @@ export class ContainerPage {
   page = {"shop": ShopPage, "calendar": CalendarPage};
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.moveCoupon();
   }
 
   ionViewDidLoad() {
