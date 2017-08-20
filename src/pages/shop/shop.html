@@ -1,43 +1,62 @@
 <ion-content>
-    <ion-grid>
-        <ion-row>
-          <ion-col>
-              <ion-list>
-                  <ion-item>
-                    <ion-label>지역</ion-label>
-                    <ion-select  [(ngModel)]="loca_choice" >
-                      <ion-option value="0" >전체</ion-option>
-                      <ion-option value={{data.no}} *ngFor="let data of loca">{{data.name}}</ion-option>
-                    </ion-select>
-                  </ion-item>
-                </ion-list>
-          </ion-col>
-          <ion-col>
-              <ion-list>
-                  <ion-item>
-                    <ion-label>분류</ion-label>
-                    <ion-select  [(ngModel)]="type_choice" >
-                      <ion-option value="0" >전체</ion-option>
-                      <ion-option value={{data.no}} *ngFor="let data of type">{{data.name}}</ion-option>
-                    </ion-select>
-                  </ion-item>
-                </ion-list>
-          </ion-col>
-          <ion-col>
-            <button (click)="refresh()">조회</button>
-          </ion-col>
-        </ion-row>
-    </ion-grid>
+  <div class="select-section">
+    <div class="select-box">
+      <div class="box-btn" (click)="show_loca = !show_loca">
+        <span>{{loca_choice == -1 ? '지역선택' : loca[loca_choice].name}}</span><ion-icon name="ios-play"></ion-icon>
+      </div>
+      <div class="box-content" *ngIf="show_loca">
+        <div *ngFor="let data of loca; let i = index" (click)="loca_choice = i; refresh(); show_loca = false">
+          {{data.name}}
+        </div>
+      </div>
+    </div>
+    <div class="select-box">
+      <div class="box-btn" (click)="show_type = !show_type">
+        <span>{{type_choice == -1 ? '업종분류' : type[type_choice].name}}</span><ion-icon name="ios-play"></ion-icon>
+      </div>
+      <div class="box-content" *ngIf="show_type">
+        <div *ngFor="let data of type; let i = index" (click)="type_choice = i; refresh(); show_type = false">
+          {{data.name}}
+        </div>
+      </div>
+    </div>
+    <div class="search-btn" (click)="refresh()">
+      조회
+    </div>
+  </div>
+  <!-- <ion-grid>
     <ion-row>
-      <ion-col>번호</ion-col>
-      <ion-col>이름</ion-col>
-      <ion-col>타입</ion-col>
-      <ion-col>위치</ion-col>
+      <ion-col>
+          <ion-list>
+              <ion-item>
+                <ion-label>지역</ion-label>
+                <ion-select  [(ngModel)]="loca_choice" >
+                  <ion-option value="0" >전체</ion-option>
+                  <ion-option value={{data.no}} *ngFor="let data of loca">{{data.name}}</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+      </ion-col>
+      <ion-col>
+          <ion-list>
+              <ion-item>
+                <ion-label>분류</ion-label>
+                <ion-select  [(ngModel)]="type_choice" >
+                  <ion-option value="0" >전체</ion-option>
+                  <ion-option value={{data.no}} *ngFor="let data of type">{{data.name}}</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+      </ion-col>
+      <ion-col>
+        <button (click)="refresh()">조회</button>
+      </ion-col>
     </ion-row>
-    <ion-row (click) = detail(data.shopNo) *ngFor="let data of datas">
-      <ion-col>{{data.shopNo}}</ion-col>
-      <ion-col> {{data.name}} </ion-col>
-      <ion-col>{{data.type}} </ion-col>
-      <ion-col>{{data.loca}}</ion-col>
-    </ion-row>
+  </ion-grid> -->
+  <ion-row class="item-row" (click) = detail(data.shopNo) *ngFor="let data of datas">
+    <ion-col col-1 class="idx">{{data.shopNo}}</ion-col>
+    <ion-col col-7 class="name">{{data.name}}</ion-col>
+    <ion-col col-2 class="type">{{data.type}} </ion-col>
+    <ion-col col-2 class="loca">{{data.loca}}</ion-col>
+  </ion-row>
 </ion-content>
