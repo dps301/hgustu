@@ -1,4 +1,4 @@
-import { Directive, ElementRef, AfterViewInit } from '@angular/core';
+import { Directive, ElementRef, DoCheck } from '@angular/core';
 
 /*
   Generated class for the Square directive.
@@ -9,12 +9,11 @@ import { Directive, ElementRef, AfterViewInit } from '@angular/core';
 @Directive({
   selector: '[square]' // Attribute selector
 })
-export class Square implements AfterViewInit {
-
+export class Square implements DoCheck {
   constructor(public el: ElementRef) {
   }
-  
-  ngAfterViewInit() {
+
+  ngDoCheck(): void {
     this.el.nativeElement.style.height = this.el.nativeElement.offsetWidth + 'px';
   }
 }

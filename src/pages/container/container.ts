@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 import { ShopPage } from '../shop/shop';
 import { ShopDetailPage } from '../shop-detail/shop-detail';
 import { CouponListPage } from '../coupon-list/coupon-list';
@@ -13,7 +13,9 @@ import { CalendarPage } from '../calendar/calendar';
   templateUrl: 'container.html',
 })
 export class ContainerPage {
-  page = ['','','',CalendarPage,ShopPage];
+  @ViewChild(Content) content: Content;
+
+  page = ['', '', '', CalendarPage, ShopPage];
   main: Array<any> = ["assets/images/container/2button_1.png",
   "assets/images/container/2button_2.png",
   "assets/images/container/2button_3.png",
@@ -38,8 +40,13 @@ export class ContainerPage {
   }
 
   ionViewDidLoad() {
-    this.move('calendar');
+    // this.navCtrl.push(CalendarPage);
   }
+
+  ionViewDidEnter() {
+    this.content.resize();
+  }
+
   move(link) {
     switch (link) {
       case 1 : 
@@ -48,8 +55,8 @@ export class ContainerPage {
       // case 5 :const browser = this.iab.create('https://ionicframework.com/');
       
     }
-    
   }
+
   moveCoupon() {
     this.navCtrl.push(CouponListPage, {userNo:1});
   }

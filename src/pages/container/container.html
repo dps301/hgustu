@@ -1,63 +1,63 @@
-<!--
-  Generated template for the MainPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
---> 
-    <ion-content>
-        <ion-title><img src="assets/images/container/logo.png"></ion-title>
-        <div class="gridbg">
-          <ion-row>
-              <ion-col square>
-                  <img [src]="main[0]" class="mainButton">
-              </ion-col >
-              <ion-col square (click)="move('notice')">
-                  <img [src]="main[1]" class="mainButton">
-              </ion-col>
-              <ion-col square (click)="move('complaint')">
-                  <img [src]="main[2]" class="mainButton">
-              </ion-col>
-          </ion-row>
-          <ion-row>
-              <ion-col (click)="move(3)" square>
-                  <img [src]="main[3]" class="mainButton">
-              </ion-col>
-              <ion-col (click)="move(4)" square>
-                  <img [src]="main[4]" class="mainButton">
-              </ion-col>
-              <ion-col square>
-                  <a href="http://seal.handong.edu"><img [src]="main[5]" class="mainButton"></a>
-              </ion-col>
-          </ion-row>
-          <ion-row>
-              <ion-col square>
-                  <img [src]="main[6]" class="mainButton">
-              </ion-col>
-              <ion-col (click)="move('form')" square>
-                  <img [src]="main[7]" class="mainButton">
-              </ion-col>
-              <ion-col square>
-                  <img [src]="main[8]" class="mainButton">
-              </ion-col>
-          </ion-row>
-        </div>
-        <div class="footSet">
-            <span>
-                <img [src]="footImg[0]" class="footButton">
-              </span>
-              <span>
-                  <img [src]="footImg[1]" class="footButton">
-              </span>
-              <span>
-                  <img [src]="footImg[2]" class="footButton">
-              </span>
-              <span>
-                  <img [src]="footImg[3]" class="footButton">
-              </span>
-              <span (click)="moveCoupon()">
-                  <img [src]="footImg[4]" class="footButton">
-              </span>
-            </div>
-    </ion-content>
-   
-    
+<ion-content>
+  <div class="top-container">
+    <div class="logo">
+      한동대학교 총학생회
+    </div>
+    <div class="gridbg">
+      <ion-row>
+        <ion-col square>
+          <img [src]="main[0]" class="mainButton">
+        </ion-col >
+        <ion-col square (click)="move('notice')">
+          <img [src]="main[1]" class="mainButton">
+        </ion-col>
+        <ion-col square (click)="move('complaint')">
+          <img [src]="main[2]" class="mainButton">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col (click)="move(3)" square>
+          <img [src]="main[3]" class="mainButton">
+        </ion-col>
+        <ion-col (click)="move(4)" square>
+          <img [src]="main[4]" class="mainButton">
+        </ion-col>
+        <ion-col square>
+          <a href="http://seal.handong.edu"><img [src]="main[5]" class="mainButton"></a>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col square>
+          <img [src]="main[6]" class="mainButton">
+        </ion-col>
+        <ion-col (click)="move('form')" square>
+          <img [src]="main[7]" class="mainButton">
+        </ion-col>
+        <ion-col square>
+          <img [src]="main[8]" class="mainButton">
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <div class="footSet">
+      <span>
+        <img [src]="footImg[0]" class="footButton">
+      </span>
+      <span>
+        <img [src]="footImg[1]" class="footButton">
+      </span>
+      <span>
+        <img [src]="footImg[2]" class="footButton">
+      </span>
+      <span>
+        <img [src]="footImg[3]" class="footButton">
+      </span>
+      <span (click)="moveCoupon()">
+        <img [src]="footImg[4]" class="footButton">
+      </span>
+    </div>
+  </ion-toolbar>
+</ion-footer>
