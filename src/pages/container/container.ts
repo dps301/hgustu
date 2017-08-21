@@ -18,6 +18,7 @@ export class ContainerPage {
   }
 
   ionViewDidLoad() {
+    this.move('calendar');
   }
   move(link) {
     this.navCtrl.push(this.page[link]);
