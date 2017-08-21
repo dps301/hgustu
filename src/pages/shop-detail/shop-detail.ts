@@ -25,8 +25,6 @@ export class ShopDetailPage {
   }
 
   ionViewDidLoad() {
-    
-
     this.shopNo = this.navParams.get('shopNo');
     this.http.get('/shop/detail?shopNo='+this.shopNo)
     .subscribe(data =>{

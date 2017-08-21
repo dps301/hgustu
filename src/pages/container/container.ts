@@ -37,11 +37,9 @@ export class ContainerPage {
   ionViewDidLoad() {
   }
   move(link) {
-    
     this.navCtrl.push(this.page[link]);
   }
   moveCoupon() {
-    this.navCtrl.push(CouponListPage,{userNo:1});
+    this.navCtrl.push(CouponListPage, {userNo:1});
   }
-
 }

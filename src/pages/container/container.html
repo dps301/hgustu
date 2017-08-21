@@ -3,6 +3,7 @@
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
+<<<<<<< HEAD
 --> 
     <ion-content>
         <ion-title><img src="assets/images/container/logo.png"></ion-title>
@@ -58,6 +59,67 @@
                   <img [src]="footImg[4]" class="footButton">
               </span>
             </div>
+=======
+-->
+<ion-header>
+    
+      <ion-navbar>
+        <ion-title>main</ion-title>
+      </ion-navbar>
+    
+    </ion-header>
+    
+    
+    <ion-content padding>
+        <ion-row>
+            <ion-col>
+              신청 예약
+            </ion-col>
+            <ion-col  (click)="move('notice')">
+              공지
+            </ion-col>
+            <ion-col  (click)="move('complaint')">
+              민원
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col (click)="move('calendar')">
+              달력
+            </ion-col>
+            <ion-col (click)="move('shop')">
+              HGU샵
+            </ion-col>
+            <ion-col>
+              SEAL
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+              한동피디아
+            </ion-col>
+            <ion-col (click)="move('form')">
+              설문조사
+            </ion-col>
+            <ion-col>
+              한동기도네트워크
+            </ion-col>
+        </ion-row>
+        <span>
+          버스
+        </span>
+        <span>
+          총학 페이스북
+        </span>
+        <span>
+          총학 홈페이지
+        </span>
+        <span>
+          전화연결
+        </span>
+        <span (click)="moveCoupon()">
+          My Coupon
+        </span>
+>>>>>>> 093781adf99c0e1ce1bfb2b9d857e0581f41b679
     </ion-content>
    
     

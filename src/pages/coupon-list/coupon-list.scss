@@ -1,3 +1,81 @@
 page-coupon-list {
+    .scroll-content {
+        background: #f3f3f4;
+        padding: 0px 15px;
+    }
+    .title {
+        margin: 30px 0px;
+        font-size: 28px;
+        color: #207b4a;
+    }
+    ion-row {
+        margin: 10px 0px;
+        padding: 7px 0px;
 
+        &.row-header {
+            background: #30995e;
+            color: white;
+        }
+        &.row-content {
+            background: white;
+        }
+    }
+    ion-col {
+        text-align: center;
+
+        &.index {
+            color: #30995e;
+        }
+        &.name {
+            color: black;
+        }
+        &.amt {
+            color: #848588;
+        }
+    }
+
+    .coupon-alert {
+        z-index: 3;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #ffffff;
+        border: 8px #30995e solid;
+        border-radius: 20px;
+        height: 200px;
+        width: 80%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        .content {
+            div {
+                padding: 5px 0px;
+                text-align: center;
+            }
+        }
+
+        .use-btn {
+            margin-top: 20px;
+            padding: 10px 0px;
+            background: #30995e;
+            color: white;
+            width: 45%;
+            text-align: center;
+        }
+    }
+    .backdrop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(black, 0.5);
+        z-index: 2;
+    }
 }
