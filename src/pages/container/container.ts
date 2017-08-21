@@ -40,7 +40,7 @@ export class ContainerPage {
   }
 
   ionViewDidLoad() {
-    this.navCtrl.push(CalendarPage);
+    // this.navCtrl.push(CalendarPage);
   }
 
   ionViewDidEnter() {
