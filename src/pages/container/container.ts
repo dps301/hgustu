@@ -12,8 +12,25 @@ import { CalendarPage } from '../calendar/calendar';
   templateUrl: 'container.html',
 })
 export class ContainerPage {
-  page = ['','','',CalendarPage];
-
+  page = ['','','',CalendarPage,ShopPage];
+  main: Array<any> = ["assets/images/container/2button_1.png",
+  "assets/images/container/2button_2.png",
+  "assets/images/container/2button_3.png",
+  "assets/images/container/2button_4.png",
+  "assets/images/container/2button_5.png",
+  "assets/images/container/2button_6.png",
+  "assets/images/container/2button_7.png",
+  "assets/images/container/2button_8.png",
+  "assets/images/container/2button_9.png"
+  ];
+  footImg : Array<any> = [
+    "assets/images/container/button_1.png",
+    "assets/images/container/button_2.png",
+    "assets/images/container/button_3.png",
+    "assets/images/container/button_4.png",
+    "assets/images/container/button_5.png",
+  ];
+  
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
