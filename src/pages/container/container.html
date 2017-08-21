@@ -8,7 +8,7 @@
         <ion-title><img src="assets/images/container/logo.png"></ion-title>
         <div class="gridbg">
           <ion-row>
-              <ion-col square>
+              <ion-col square (click)="move(0)">
                   <img [src]="main[0]" class="mainButton">
               </ion-col >
               <ion-col square (click)="move('notice')">

@@ -7,6 +7,7 @@ import { CouponListPageModule } from '../coupon-list/coupon-list.module';
 import { CalendarPageModule } from '../calendar/calendar.module';
 import { LoginPageModule } from '../login/login.module';
 import { SquareModule } from '../../directive/sqare.module'
+import { ReservePageModule } from "../reserve/reserve.module";
 @NgModule({
   declarations: [
     ContainerPage,
@@ -18,7 +19,8 @@ import { SquareModule } from '../../directive/sqare.module'
     CouponListPageModule,
     LoginPageModule,
     CalendarPageModule,
-    SquareModule
-  ],
+    SquareModule,
+    ReservePageModule
+    ],
 })
 export class ContainerPageModule {}

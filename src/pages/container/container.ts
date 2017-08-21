@@ -5,6 +5,7 @@ import { ShopDetailPage } from '../shop-detail/shop-detail';
 import { CouponListPage } from '../coupon-list/coupon-list';
 import { LoginPage } from '../login/login';
 import { CalendarPage } from '../calendar/calendar';
+import { ReservePage } from "../reserve/reserve";
 // import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @IonicPage()
@@ -13,7 +14,7 @@ import { CalendarPage } from '../calendar/calendar';
   templateUrl: 'container.html',
 })
 export class ContainerPage {
-  page = ['','','',CalendarPage,ShopPage];
+  page = [ReservePage,'','',CalendarPage,ShopPage];
   main: Array<any> = ["assets/images/container/2button_1.png",
   "assets/images/container/2button_2.png",
   "assets/images/container/2button_3.png",
@@ -40,13 +41,14 @@ export class ContainerPage {
   ionViewDidLoad() {
   }
   move(link) {
-    switch (link) {
-      case 1 : 
-      case 2 : this.navCtrl.push(this.page[link]);
-      break;
-      // case 5 :const browser = this.iab.create('https://ionicframework.com/');
+    this.navCtrl.push(this.page[link]);
+    // switch (link) {
+    //   case 1 : 
+    //   case 2 : this.navCtrl.push(this.page[link]);
+    //   break;
+    //   // case 5 :const browser = this.iab.create('https://ionicframework.com/');
       
-    }
+    // }
     
   }
   moveCoupon() {
