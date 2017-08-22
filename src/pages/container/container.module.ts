@@ -11,6 +11,7 @@ import { ReservePageModule } from "../reserve/reserve.module";
 import { NoticePageModule } from "../notice/notice.module";
 import { NoticeDetailPageModule } from "../notice-detail/notice-detail.module";
 import { ComplainPageModule } from "../complain/complain.module";
+import { FormPageModule } from "../form/form.module";
 @NgModule({
   declarations: [
     ContainerPage,
@@ -26,7 +27,8 @@ import { ComplainPageModule } from "../complain/complain.module";
     ReservePageModule,
     NoticePageModule,
     NoticeDetailPageModule,
-    ComplainPageModule
+    ComplainPageModule,
+    FormPageModule
     ],
 })
 export class ContainerPageModule {}

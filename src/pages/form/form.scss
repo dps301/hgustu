@@ -1,0 +1,91 @@
+page-form {
+    .title {
+        margin: 30px 0px;
+        font-size: 28px;
+        color: #207b4a;
+        text-align: center;
+    }
+    .title2 {
+        margin: 30px 0px;
+        font-size: 20px;
+        color: #207b4a;
+    }
+    .scroll-content {
+        background: #f3f3f4;
+    }
+
+    .select-section {
+        background: #30995e;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 20px 10px;
+
+        .select-box {
+            position: relative;
+            flex-basis: 45%;
+            font-weight: 600;
+
+            .box-btn {
+                background: #f3f3f4;
+                color: #30995e;
+                padding: 10px 20px;
+                display: flex;
+                justify-content: space-between;
+
+                ion-icon {
+                    transform: rotate(90deg);
+                }
+            }
+            .box-content {
+                width: calc(100% + 3px);
+                position: absolute;
+                margin-top: 5px;
+                background: white;
+                border: #30995e 3px solid;
+                z-index: 100;
+                padding: 0px 2px;
+                box-shadow: 4px 4px 15px 1px rgba(0, 0, 0, 0.14);
+                
+                div:not(:last-child) {
+                    border-bottom: #d4d5d6 solid 1px;
+                }
+                div {
+                    padding: 10px;
+                }
+            }
+        }
+        .search-btn {
+            flex-basis: 20%;
+            padding: 10px;
+            color: white;
+            border: 1px solid white;
+            border-radius: 5px;
+            text-align: center;
+        }
+    }
+
+    .item-row {
+        background: white;
+        text-align: center;
+        margin: 10px 10px;
+        padding: 10px 0px;
+        box-shadow: 4px 4px 15px 1px rgba(0, 0, 0, 0.14);
+
+        ion-col {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &.idx {
+                color: #30995e;
+            }
+            &.name {
+                word-break: keep-all;
+            }
+            &.type, &.loca {
+                color: #959699;
+            }
+        }
+    }
+}
