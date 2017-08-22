@@ -3,32 +3,43 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpService } from "../../services/http.service";
 import { NoticeDetailPage } from "../notice-detail/notice-detail";
 
-/**
- * Generated class for the NoticePage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-notice',
   templateUrl: 'notice.html',
 })
+
 export class NoticePage {
-  notices;
+  notices: Array<any> = [];
+  offset: number = 0;
+  pageSize: number = 15;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad NoticePage');
-    this.http.get('/notice?offset=0&pageSize=7')
-    .subscribe(data =>{
-      this.notices = data.json().data;
-    })
-  }
-  detailNotice(title, content, regdate) {
-    this.navCtrl.push(NoticeDetailPage, {title:title,content:content,regdate:regdate});
+    this.getNotice();
   }
 
+  getNotice() {
+    this.http.get('/notice?offset=' + this.offset * this.pageSize + '&pageSize=' + this.pageSize)
+    .subscribe(data =>{
+      this.notices = data.json().data;
+    });
+  }
+
+  detailNotice(title, content, regdate) {
+    this.navCtrl.push(NoticeDetailPage, {title: title, content: content, regdate:regdate});
+  } 
+
+  doInfinite(infiniteScroll) {
+    this.offset++;
+    
+    this.http.get('/notice?offset=' + this.offset * this.pageSize + '&pageSize=' + this.pageSize)
+    .subscribe(data =>{
+      this.notices = this.notices.concat(data.json().data);
+      console.log(this.notices);
+      infiniteScroll.complete();
+    });
+  }
 }
