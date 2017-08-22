@@ -27,7 +27,7 @@
         <div>{{couponDetail.amt | number}}</div>
         <div>{{dt(couponDetail.expDttm)}}</div>
       </div>
-      <div class="use-btn">
+      <div class="use-btn" (click)="useCoupon(couponDetail.coupon_no)">
         사용하기
       </div>
     </div>

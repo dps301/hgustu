@@ -22,7 +22,6 @@ export class CalendarPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CalendarPage');
-    
   }
   detail(data) {
     console.log(data)

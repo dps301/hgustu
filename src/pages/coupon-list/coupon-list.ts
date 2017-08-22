@@ -32,4 +32,11 @@ export class CouponListPage {
   dt(date) {
     return date.substring(0, 10)
   }
+  useCoupon(no) {
+    this.http.put('/coupon/use',{userNo:1,couponNo:no})
+    .subscribe(data =>{
+      this.load();
+      this.couponDetail = 0;
+    })
+  }
 }

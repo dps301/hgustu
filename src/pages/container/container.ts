@@ -6,7 +6,8 @@ import { CouponListPage } from '../coupon-list/coupon-list';
 import { LoginPage } from '../login/login';
 import { CalendarPage } from '../calendar/calendar';
 import { ReservePage } from "../reserve/reserve";
-// import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { NoticePage } from "../notice/notice";
 
 @IonicPage()
 @Component({
@@ -14,7 +15,7 @@ import { ReservePage } from "../reserve/reserve";
   templateUrl: 'container.html',
 })
 export class ContainerPage {
-  page = [ReservePage,'','',CalendarPage,ShopPage];
+  page = [ReservePage,NoticePage,'',CalendarPage,ShopPage];
   @ViewChild(Content) content: Content;
 
   main: Array<any> = ["assets/images/container/2button_1.png",
@@ -36,12 +37,16 @@ export class ContainerPage {
   ];
   
   constructor(public navCtrl: NavController, public navParams: NavParams
-    // ,private iab: InAppBrowser
+    ,private iab: InAppBrowser
   ) {
   }
 
   ionViewDidLoad() {
     // this.navCtrl.push(CalendarPage);
+    
+    // browser.executeScript(data =>{
+    //   console.log('s')
+    // });
   }
 
   ionViewDidEnter() {
@@ -49,17 +54,32 @@ export class ContainerPage {
   }
 
   move(link) {
-    this.navCtrl.push(this.page[link]);
-    // switch (link) {
-    //   case 1 : 
-    //   case 2 : this.navCtrl.push(this.page[link]);
-    //   break;
-    //   // case 5 :const browser = this.iab.create('https://ionicframework.com/');
-      
-    // }
+    
+    switch (link) { 
+      case 5: this.iab.create('http://seal.handong.edu/');
+      break;
+      case 6: this.iab.create('http://pedia.cafe24app.com/');
+      break;
+      case 8: this.iab.create('https://ionicframework.com/');
+      break;
+      default : this.navCtrl.push(this.page[link]);
+    }
     
     }
-  
+  moveBottom(link) {
+    switch (link) { 
+      case 0 : this.iab.create('http://stu.handong.edu/bus/ctest_week.php','_blank','location=no');
+      break; 
+      case 1: this.iab.create('https://www.facebook.com/hgustugov/');
+      break;
+      case 2: this.iab.create('http://stu.handong.edu/');
+      break;
+      case 3: window.open("tel:" + '0542601631');
+      break;
+      case 4: this.moveCoupon();
+      break;
+  }
+}
 
   moveCoupon() {
     this.navCtrl.push(CouponListPage, {userNo:1});

@@ -48,19 +48,19 @@
 </ion-content>
 <ion-footer>
     <div class="footSet">
-      <div>
+      <div (click)="moveBottom(0)">
         <img [src]="footImg[0]" class="footButton">
       </div>
-      <div>
+      <div (click)="moveBottom(1)">
         <img [src]="footImg[1]" class="footButton">
       </div>
-      <div>
+      <div (click)="moveBottom(2)">
         <img [src]="footImg[2]" class="footButton">
       </div>
-      <div>
+      <div (click)="moveBottom(3)">
         <img [src]="footImg[3]" class="footButton">
       </div>
-      <div (click)="moveCoupon()">
+      <div (click)="moveBottom(4)">
         <img [src]="footImg[4]" class="footButton">
       </div>
     </div>

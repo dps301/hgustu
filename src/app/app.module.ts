@@ -9,6 +9,7 @@ import { ServerAddr } from '../services/server.addr';
 
 import { MyApp } from './app.component';
 import { ContainerPageModule } from '../pages/container/container.module';
+import { InAppBrowser } from "@ionic-native/in-app-browser";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ContainerPageModule } from '../pages/container/container.module';
     SplashScreen,
     HttpService,
     ServerAddr,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    InAppBrowser,
+    {provide: ErrorHandler, useClass: IonicErrorHandler,}
   ]
 })
 export class AppModule {}

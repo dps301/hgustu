@@ -1,4 +1,4 @@
-<ion-content padding>
+<ion-content>
   <div class="title">
     달력
   </div>
@@ -19,10 +19,10 @@
   <ion-row *ngFor="let weekData of item; let i = index">
     <ion-col col-2 class="left-col">{{i+1}}주차</ion-col>
     <ion-col>
-      <ion-row margin-left class="right-row">
-        <ion-col *ngFor="let data of weekData.week; let i = index;">
+      <ion-row class="right-row">
+        <ion-col *ngFor="let data of weekData.week; let j = index;">
           <div class="number-index">
-            {{i + 1}}
+            29
           </div>
           <div class="schedule-mark" *ngFor="let day of data" (click)="detail(data)">
             {{day.title}}
