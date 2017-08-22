@@ -19,7 +19,7 @@
     </ion-row>
 
   <div class="title2">예약 현황</div>
-  <ion-row class="item-row" (click) = detail(data.shopNo) *ngFor="let data of reserves">
+  <ion-row class="item-row" (click) = detail(data.src) *ngFor="let data of reserves">
     <ion-col class="idx">{{data.title}}</ion-col>
   </ion-row>
 </ion-content>

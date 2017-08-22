@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpService } from "../../services/http.service";
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 /**
  * Generated class for the ReservePage page.
@@ -16,7 +17,7 @@ import { HttpService } from "../../services/http.service";
 })
 export class ReservePage {
   reserves
-  constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService,private iab: InAppBrowser) {
     this.http.get('/reserve')
     .subscribe(data =>{
         this.reserves = data.json();
@@ -25,6 +26,9 @@ export class ReservePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ReservePage');
+  }
+  detail(link){
+    this.iab.create(link);
   }
 
 }

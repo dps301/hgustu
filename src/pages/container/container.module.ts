@@ -10,6 +10,7 @@ import { SquareModule } from '../../directive/sqare.module'
 import { ReservePageModule } from "../reserve/reserve.module";
 import { NoticePageModule } from "../notice/notice.module";
 import { NoticeDetailPageModule } from "../notice-detail/notice-detail.module";
+import { ComplainPageModule } from "../complain/complain.module";
 @NgModule({
   declarations: [
     ContainerPage,
@@ -24,7 +25,8 @@ import { NoticeDetailPageModule } from "../notice-detail/notice-detail.module";
     SquareModule,
     ReservePageModule,
     NoticePageModule,
-    NoticeDetailPageModule
+    NoticeDetailPageModule,
+    ComplainPageModule
     ],
 })
 export class ContainerPageModule {}

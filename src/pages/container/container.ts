@@ -8,6 +8,7 @@ import { CalendarPage } from '../calendar/calendar';
 import { ReservePage } from "../reserve/reserve";
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { NoticePage } from "../notice/notice";
+import { ComplainPage } from "../complain/complain";
 
 @IonicPage()
 @Component({
@@ -15,7 +16,7 @@ import { NoticePage } from "../notice/notice";
   templateUrl: 'container.html',
 })
 export class ContainerPage {
-  page = [ReservePage,NoticePage,'',CalendarPage,ShopPage];
+  page = [ReservePage,NoticePage,ComplainPage,CalendarPage,ShopPage];
   @ViewChild(Content) content: Content;
 
   main: Array<any> = ["assets/images/container/2button_1.png",
