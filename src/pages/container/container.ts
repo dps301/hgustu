@@ -82,23 +82,27 @@ export class ContainerPage {
       break;
       case 4: this.moveCoupon();
       break;
+    }
   }
-}
-presentToast() {
-  let toast = this.toastCtrl.create({
-    message: '준비 중 인 서비스입니다.',
-    duration: 3000,
-    position: 'bottom'
-  });
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: '준비 중 인 서비스입니다.',
+      duration: 3000,
+      position: 'bottom'
+    });
 
-  toast.onDidDismiss(() => {
-    console.log('Dismissed toast');
-  });
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
 
-  toast.present();
-}
+    toast.present();
+  }
 
   moveCoupon() {
     this.navCtrl.push(CouponListPage, {userNo:1});
+  }
+
+  resize() {
+    this.content.resize();
   }
 }
