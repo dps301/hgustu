@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpService } from "../../services/http.service";
-import { InAppBrowser } from '@ionic-native/in-app-browser';
-import { BbqPage } from "../bbq/bbq";
+import { InAppBrowser } from "@ionic-native/in-app-browser";
+import { ContainerPage } from "../container/container";
 
 /**
- * Generated class for the ReservePage page.
+ * Generated class for the FormPage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
@@ -13,27 +13,21 @@ import { BbqPage } from "../bbq/bbq";
 
 @IonicPage()
 @Component({
-  selector: 'page-reserve',
-  templateUrl: 'reserve.html',
+  selector: 'page-form',
+  templateUrl: 'form.html',
 })
-export class ReservePage {
-  reserves
-  link = [BbqPage]
+export class FormPage {
+  forms
   constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService,private iab: InAppBrowser) {
-    this.http.get('/reserve')
+    this.http.get('/form')
     .subscribe(data =>{
-        this.reserves = data.json();
+        this.forms = data.json();
     });
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ReservePage');
-  }
-  godetail(no){
-    this.navCtrl.push(this.link[no])
   }
   detail(link){
     this.iab.create(link);
   }
-
 }

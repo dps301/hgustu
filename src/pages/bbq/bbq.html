@@ -1,0 +1,35 @@
+<ion-content>
+    <div class="title">
+      달력
+    </div>
+    <ion-row>
+      <ion-col col-2 margin-left class="top-row">Table</ion-col>
+      <ion-col>
+        <ion-row margin-left class="top-row">
+          <ion-col>1</ion-col>
+          <ion-col>2</ion-col>
+          <ion-col>3</ion-col>
+          <ion-col>4</ion-col>
+          <ion-col>5</ion-col>
+          <ion-col>6</ion-col>
+          <ion-col>7</ion-col>    
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let item of item; let i = index">
+      <ion-col col-2 class="left-col">{{item}}</ion-col>
+      <ion-col>
+        <ion-row class="right-row">
+          <ion-col *ngFor="let num2 of number2; let j = index;">
+              <div *ngIf="check(i,j)">
+                  {{bbqData[check(i,j)].group_name}}
+              </div>
+              <div *ngIf="!check(i,j)">
+                  사용가능
+              </div>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-content>
+  
