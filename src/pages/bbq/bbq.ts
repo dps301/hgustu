@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpService } from "../../services/http.service";
+import { LoginSession } from "../../services/loginSession";
 
 /**
  * Generated class for the BbqPage page.
@@ -49,7 +50,8 @@ export class BbqPage {
   detailData=0;
   row:any;
   col:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService,
+  private loginSession:LoginSession) {
   }
 
   // ionViewDidLoad() {
@@ -80,15 +82,17 @@ export class BbqPage {
     });
   }
   bbqReserve(data){
+    
     var body ={
-      team:data.group_name,
-      name:data.student_name,
-      num:data.group_name,
-      call:data.group_name,
+      team:data.team,
+      purpose:data.purpose,
+      name:this.loginSession.getInfo().id,
+      num:this.loginSession.getInfo().stu_id,
+      call:data.call,
       row:this.row,
       col:this.col
     }
-    this.http.post('/reserve/bbq?date='+this.date)
+    this.http.post('/reserve/bbq',body)
     .subscribe(()=>{
       this.load();
     })

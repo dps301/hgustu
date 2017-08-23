@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { HttpService } from '../../services/http.service';
 import { Slides } from 'ionic-angular';
+import { LoginSession } from "../../services/loginSession";
 
 declare var naver: any;
 
@@ -21,7 +22,8 @@ export class ShopDetailPage {
   infoWindow: any;
   showComplain: boolean = false;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService,
+  private loginSession : LoginSession) {
   }
 
   ionViewDidLoad() {
@@ -79,7 +81,7 @@ export class ShopDetailPage {
     }
   }
   complain(){
-    this.http.post('/problem',{userNo:1,shopNo:this.shopNo,content:this.textareaValue})
+    this.http.post('/problem',{userNo:this.loginSession.getInfo().userNo,shopNo:this.shopNo,content:this.textareaValue})
     .subscribe(d=>{
       
     })
