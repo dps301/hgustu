@@ -12,7 +12,7 @@ import { LoginSession } from '../services/loginSession';
 })
 export class MyApp {
   // rootPage:any = ContainerPage;
-  rootPage: any = null;
+  rootPage: any = LoginPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private nativeStorage: NativeStorage, private loginSession: LoginSession) {
     platform.ready().then(() => {
@@ -20,21 +20,6 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
-
-      if(!platform.is('mobileweb')) {
-        this.nativeStorage.getItem('userInfo')
-        .then(
-          data => {
-            this.loginSession.setInfo(data.json());
-            this.rootPage = ContainerPage;
-          },
-          error => {
-            this.rootPage = LoginPage;
-          }
-        );
-      }
-
-      this.rootPage = LoginPage;
     });
   }
 }
