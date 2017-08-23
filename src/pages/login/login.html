@@ -1,16 +1,40 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>login</ion-title>
-  </ion-navbar>
-</ion-header>
 <ion-content padding>
-    <div>
-      id: <input type="text" [(ngModel)]="id">
+  <div class="outer-container">
+    <div class="login-container">
+      <div class="top">
+        <div class="input-form">
+          <div class="input-label">아이디</div>
+          <input type="text" [(ngModel)]="id">
+        </div>
+        <div class="input-form">
+          <div class="input-label">비밀번호</div>
+          <input type="text" [(ngModel)]="pw">
+        </div>
+        <div class="save-check">
+          <input type="checkbox" name="" id="" [checked]="saveChecked" (change)="saveChecked = !saveChecked">
+          <span class="label">아이디 기억하기</span>
+        </div>
+        <div class="login" (click)="login()">
+          로그인
+        </div>
+      </div>
+      <div class="bottom">
+        <div>
+          2011년 이후 2013년까지 신,편입생 홈페이지 계정<br/>
+          ID: 학번(ex:21300***)<br/>
+          Password: 생년월일(950504 or 19950504)<br/>
+        </div>
+        <div>
+          2014년 이후 신,편입생 홈페이지 계정<br/>
+          ID: 학번(ex:21400***)<br/>
+          Password: 생년월일(940504)<br/>
+        </div>
+        <div>
+          2015년 이후 신,편입생 홈페이지 계정<br/>
+          ID: 학번(ex:21500***)<br/>
+          Password: 이름 맨 뒷글자 + 학번 끝 3자리 (ex:홍길동 - ehd123)<br/>
+        </div>
+      </div>
     </div>
-    <div>
-      pw: <input type="text" [(ngModel)]="pw">
-    </div>
-    <div (click)="login()">
-      로그인
-    </div>
+  </div>
 </ion-content>

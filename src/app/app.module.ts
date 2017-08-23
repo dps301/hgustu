@@ -10,6 +10,9 @@ import { ServerAddr } from '../services/server.addr';
 import { MyApp } from './app.component';
 import { ContainerPageModule } from '../pages/container/container.module';
 import { InAppBrowser } from "@ionic-native/in-app-browser";
+import { LoginPageModule } from '../pages/login/login.module';
+import { LoginSession } from '../services/loginSession';
+import { NativeStorage } from '@ionic-native/native-storage';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,7 @@ import { InAppBrowser } from "@ionic-native/in-app-browser";
      }, ),
     ContainerPageModule,
     HttpModule,
-    
+    LoginPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -34,6 +37,8 @@ import { InAppBrowser } from "@ionic-native/in-app-browser";
     HttpService,
     ServerAddr,
     InAppBrowser,
+    LoginSession,
+    NativeStorage,
     {provide: ErrorHandler, useClass: IonicErrorHandler,}
   ]
 })
