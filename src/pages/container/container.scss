@@ -6,6 +6,7 @@ page-container {
         height: 100%;
         display: flex;
         flex-direction: column;
+        justify-content: flex-end;
         
         .logo {
             background: #30995B;
@@ -19,14 +20,31 @@ page-container {
         }
     }
     .col {
-        padding: 0px;
+        padding: 3px;
     }
+
     .gridbg {
         padding: 5px;
-        margin: auto;
+        margin: 0px auto;
+        margin-top: auto;
 
         .mainButton {
-            padding: 3px;
+            // padding: 3px;
+        }
+
+        .title-section {
+            .top-col-title {
+                border: #cccdce solid 1px;
+                background: #30995b;
+                color: white;
+                // margin: 3px;
+                // padding: 3px;
+            }
+            .slide {
+                background: white;
+                height: 100%;
+                // margin: 3px;
+            }
         }
     }
     .footSet {
