@@ -6,41 +6,54 @@
 --> 
 <ion-content>
   <div class="top-container">
-    <div class="logo">
+    <!-- <div class="logo">
       한동대학교 총학생회
-    </div>
+    </div> -->
     <div class="gridbg">
+      <ion-row class="title-section">
+        <ion-col col-4 (click)="move(0)">
+          <div class="top-col-title" square>
+            한동대학교 총학생회
+          </div>
+        </ion-col>
+        <ion-col col-8 (click)="move(1)">
+          <div class="slide">
+            asdadas
+          </div>
+          <!-- <img src="main[1]" class="mainButton"> -->
+        </ion-col>
+      </ion-row>
       <ion-row>
         <ion-col square (click)="move(0)">
-          <img [src]="main[0]" class="mainButton">
+          <img src="assets/images/container/2button_1.png" class="mainButton">
         </ion-col >
         <ion-col square (click)="move(1)">
-          <img [src]="main[1]" class="mainButton">
+          <img src="assets/images/container/2button_2.png" class="mainButton">
         </ion-col>
         <ion-col square (click)="move(2)">
-          <img [src]="main[2]" class="mainButton">
+          <img src="assets/images/container/2button_3.png" class="mainButton">
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col (click)="move(3)" square>
-          <img [src]="main[3]" class="mainButton">
+          <img src="assets/images/container/2button_4.png" class="mainButton">
         </ion-col>
         <ion-col (click)="move(4)" square>
-          <img [src]="main[4]" class="mainButton">
+          <img src="assets/images/container/2button_5.png" class="mainButton">
         </ion-col>
         <ion-col square (click)="move(5)">
-          <img [src]="main[5]" class="mainButton">
+          <img src="assets/images/container/2button_6.png" class="mainButton">
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col square (click)="move(6)">
-          <img [src]="main[6]" class="mainButton">
+          <img src="assets/images/container/2button_7.png" class="mainButton">
         </ion-col>
         <ion-col (click)="move(7)" square>
-          <img [src]="main[7]" class="mainButton">
+          <img src="assets/images/container/2button_8.png" class="mainButton">
         </ion-col>
         <ion-col square (click)="move(8)">
-          <img [src]="main[8]" class="mainButton">
+          <img src="assets/images/container/2button_9.png" class="mainButton">
         </ion-col>
       </ion-row>
     </div>
@@ -49,19 +62,19 @@
 <ion-footer>
     <div class="footSet">
       <div (click)="moveBottom(0)">
-        <img [src]="footImg[0]" class="footButton">
+        <img src="assets/images/container/4buttom_1-01.png" class="footButton">
       </div>
       <div (click)="moveBottom(1)">
-        <img [src]="footImg[1]" class="footButton">
+        <img src="assets/images/container/4bottom_2-01.png" class="footButton">
       </div>
       <div (click)="moveBottom(2)">
-        <img [src]="footImg[2]" class="footButton">
+        <img src="assets/images/container/4bottom_3-01.png" class="footButton">
       </div>
       <div (click)="moveBottom(3)">
-        <img [src]="footImg[3]" class="footButton">
+        <img src="assets/images/container/4bottom_4-01.png" class="footButton">
       </div>
       <div (click)="moveBottom(4)">
-        <img [src]="footImg[4]" class="footButton">
+        <img src="assets/images/container/4bottom_5-01.png" class="footButton">
       </div>
     </div>
 </ion-footer>
