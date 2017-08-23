@@ -70,4 +70,18 @@ export class ShopDetailPage {
       }
     }
   }
+  private textareaValue = '';
+  doTextareaValueChange(ev) {
+    try {
+      this.textareaValue = ev.target.value;
+    } catch(e) {
+      console.info('could not set textarea-value');
+    }
+  }
+  complain(){
+    this.http.post('/problem',{userNo:1,shopNo:this.shopNo,content:this.textareaValue})
+    .subscribe(d=>{
+      
+    })
+  }
 }

@@ -51,9 +51,9 @@
           </div>
         </div>
         <div class="common-content complain">
-          <textarea rows="" cols=""></textarea>
+            <textarea id="some-value" (change)="doTextareaValueChange($event)">{{textareaValue}}</textarea>
         </div>
-        <div class="complain-btn">
+        <div class="complain-btn" (click)="complain()">
           <img src="assets/images/button_ask.png" alt=""> 건의하기
         </div>
       </ng-container>

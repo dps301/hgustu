@@ -35,5 +35,4 @@ export class ReservePage {
   detail(link){
     this.iab.create(link);
   }
-
 }

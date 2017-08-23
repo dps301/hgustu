@@ -20,16 +20,16 @@
       <ion-col col-2 class="left-col">{{item}}</ion-col>
       <ion-col>
         <ion-row class="right-row">
-          <ion-col *ngFor="let num2 of number2; let j = index;">
-              <div *ngIf="check(i,j)">
-                  {{bbqData[check(i,j)].group_name}}
-              </div>
-              <div *ngIf="!check(i,j)">
-                  사용가능
-              </div>
+          <ion-col *ngFor="let tem of itemDetail[i]; let j = index;">
+              <div *ngIf="tem.reserve==true">{{tem.data.group_name}}</div>
+              <div *ngIf="tem.reserve==false" (click)="detailData = tem;row=i;col=j">신청</div>
           </ion-col>
         </ion-row>
       </ion-col>
     </ion-row>
+    <div *ngIf="detailData != 0" class="calendar-alert">
+      <input>
+        <button bbqReserve(tem)></button>
+    </div>
   </ion-content>
   

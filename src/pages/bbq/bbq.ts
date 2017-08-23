@@ -41,33 +41,56 @@ export class BbqPage {
     "22:00 ~ 23:00",
     "23:00 ~ 24:00",
   ]
+  itemDetail = [];
   date="20170823";
   bbqData:any;
   number1 = [0,1,2,3,4,5,6];
   number2 = [0,1,2,3,4,5,6];
+  detailData=0;
+  row:any;
+  col:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService) {
   }
 
   // ionViewDidLoad() {
   //   this.load();
   // }
-  ionViewWillLoad() {
+  ionViewDidLoad() {
     this.load();
   }
 
-  check(row,col){
-    if(this.bbqData) 
-    for (let i = 0; i < this.bbqData.length; i++){
-      // look for the entry with a matching `code` value
-      if (this.bbqData[i].row_number == row && this.bbqData[i].col_number == col ){
-         return i;
-      } else false;
-    }
-  }
   load(){
     this.http.get('/reserve/bbq?date='+this.date)
     .subscribe(data =>{
         this.bbqData = data.json().data;
+        for(let i=0 ;i<24;i++ ){
+          var arr = [];
+          var chch:any;
+          for(let j=0 ;j<7;j++ ){
+            chch = {reserve:false}
+            for (let k= 0; k < this.bbqData.length; k++){
+              if (this.bbqData[k].row_number == i && this.bbqData[k].col_number == j ){
+                chch = { reserve: true ,data : this.bbqData[k]};
+              } 
+            }
+            arr.push(chch)
+          }
+          this.itemDetail.push(arr);
+        }
     });
+  }
+  bbqReserve(data){
+    var body ={
+      team:data.group_name,
+      name:data.student_name,
+      num:data.group_name,
+      call:data.group_name,
+      row:this.row,
+      col:this.col
+    }
+    this.http.post('/reserve/bbq?date='+this.date)
+    .subscribe(()=>{
+      this.load();
+    })
   }
 }

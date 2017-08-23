@@ -99,4 +99,14 @@ page-bbq {
         background: rgba(black, 0.5);
         z-index: 2;
     }
+    .backdrop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(black, 0.5);
+        z-index: 2;
+    }
 }

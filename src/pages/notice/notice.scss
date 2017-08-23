@@ -10,18 +10,19 @@ page-notice {
     }
     .item-row {
         background: white;
-        text-align: center;
+        text-align: left;
         margin: 10px 0px;
         padding: 10px 0px;
         box-shadow: 4px 4px 15px 1px rgba(0, 0, 0, 0.14);
 
         ion-col {
-            display: flex;
-            align-items: center;
+            // display: flex;
+            align-items: left;
             justify-content: center;
 
             &.idx {
-                color: #30995e;
+                text-align: left;
+                color: black;
             }
             &.name {
                 word-break: keep-all;
