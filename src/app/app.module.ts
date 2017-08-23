@@ -17,7 +17,9 @@ import { InAppBrowser } from "@ionic-native/in-app-browser";
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      swipeBackEnabled: 'true' //here it will help you to solve the swip
+     }, ),
     ContainerPageModule,
     HttpModule,
     

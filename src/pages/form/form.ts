@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpService } from "../../services/http.service";
 import { InAppBrowser } from "@ionic-native/in-app-browser";
+import { ContainerPage } from "../container/container";
 
 /**
  * Generated class for the FormPage page.

@@ -10,6 +10,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { NoticePage } from "../notice/notice";
 import { ComplainPage } from "../complain/complain";
 import { FormPage } from "../form/form";
+import { ToastController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -39,7 +40,7 @@ export class ContainerPage {
   ];
   
   constructor(public navCtrl: NavController, public navParams: NavParams
-    ,private iab: InAppBrowser
+    ,private iab: InAppBrowser,private toastCtrl: ToastController
   ) {
   }
 
@@ -49,6 +50,7 @@ export class ContainerPage {
     // browser.executeScript(data =>{
     //   console.log('s')
     // });
+    // this.content.resize();
   }
 
   ionViewDidEnter() {
@@ -62,7 +64,7 @@ export class ContainerPage {
       break;
       case 6: this.iab.create('http://pedia.cafe24app.com/');
       break;
-      case 8: this.iab.create('https://ionicframework.com/');
+      case 8: this.presentToast();
       break;
       default : this.navCtrl.push(this.page[link]);
     }
@@ -81,6 +83,19 @@ export class ContainerPage {
       case 4: this.moveCoupon();
       break;
   }
+}
+presentToast() {
+  let toast = this.toastCtrl.create({
+    message: '준비 중 인 서비스입니다.',
+    duration: 3000,
+    position: 'bottom'
+  });
+
+  toast.onDidDismiss(() => {
+    console.log('Dismissed toast');
+  });
+
+  toast.present();
 }
 
   moveCoupon() {
