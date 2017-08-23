@@ -25,6 +25,20 @@ export class LoginPage {
       this.loginSession.setInfo({user_no: 79738, name: "신대호", stu_id: "21100366", call: null});
       this.goMain();
     }
+
+    if(!this.platform.is('mobileweb')) {
+      this.nativeStorage.getItem('userInfo')
+      .then(
+        data => {
+          alert(data.json());
+          this.loginSession.setInfo(data.json());
+          this.goMain();
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    }
   }
 
   login() {

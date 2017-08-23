@@ -93,7 +93,8 @@ export class BbqPage {
       num:this.loginSession.getInfo().stu_id,
       call:this.data.call,
       row:this.row,
-      col:this.col
+      col:this.col,
+      date:this.date
     }
     this.http.post('/reserve/bbq',body)
     .subscribe(()=>{
