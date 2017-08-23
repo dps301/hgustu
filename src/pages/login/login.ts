@@ -36,14 +36,18 @@ export class LoginPage {
         if(this.saveChecked) {
           this.nativeStorage.setItem('userInfo', this.loginSession.getInfo())
           .then(
-            () => console.log('Stored item!'),
+            () => {
+              this.goMain();
+            },
             error => console.error('Error storing item', error)
           );
         }
         else {
           this.nativeStorage.clear()
           .then(
-            () => console.log('Cleared item!'),
+            () => {
+              this.goMain();
+            },
             error => console.error('Error clearing item', error)
           );
         }

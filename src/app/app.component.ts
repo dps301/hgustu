@@ -5,15 +5,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ContainerPage } from '../pages/container/container';
 import { LoginPage } from '../pages/login/login';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { LoginSession } from '../services/loginSession';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   // rootPage:any = ContainerPage;
-  rootPage:any = LoginPage;
+  rootPage: any = null;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private nativeStorage: NativeStorage) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private nativeStorage: NativeStorage, private loginSession: LoginSession) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -23,10 +24,17 @@ export class MyApp {
       if(!platform.is('mobileweb')) {
         this.nativeStorage.getItem('userInfo')
         .then(
-          data => console.log(data),
-          error => console.error(error)
+          data => {
+            this.loginSession.setInfo(data.json());
+            this.rootPage = ContainerPage;
+          },
+          error => {
+            this.rootPage = LoginPage;
+          }
         );
       }
+
+      this.rootPage = LoginPage;
     });
   }
 }
