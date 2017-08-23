@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpService } from '../../services/http.service';
+import { LoginSession } from "../../services/loginSession";
 
 @IonicPage()
 @Component({
@@ -11,7 +12,8 @@ export class CouponListPage {
   coupons: any = [];
   userNo: any;
   couponDetail: any = 0;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService,
+    private loginSession:LoginSession) {
   }
 
   ionViewDidLoad() {
@@ -21,7 +23,7 @@ export class CouponListPage {
 
   load() {
     this.userNo = this.navParams.get('userNo');
-    this.http.get('/coupon?userNo='+this.userNo)
+    this.http.get('/coupon?userNo='+this.loginSession.getInfo().user_no)
     .subscribe(data =>{
         this.coupons = data.json();
     })

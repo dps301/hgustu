@@ -54,7 +54,7 @@ export class ContainerPage {
   }
 
   ionViewDidEnter() {
-    this.content.resize();
+    // this.content.resize();
   }
 
   move(link) {

@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { HttpService } from '../../services/http.service';
-import { Slides } from 'ionic-angular';
+import { Slides, ToastController } from 'ionic-angular';
 import { LoginSession } from "../../services/loginSession";
 
 declare var naver: any;
@@ -23,7 +23,7 @@ export class ShopDetailPage {
   showComplain: boolean = false;
   
   constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService,
-  private loginSession : LoginSession) {
+  private loginSession : LoginSession,private toastCtrl : ToastController) {
   }
 
   ionViewDidLoad() {
@@ -80,10 +80,24 @@ export class ShopDetailPage {
       console.info('could not set textarea-value');
     }
   }
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: '감사합니다!',
+      duration: 3000,
+      position: 'bottom'
+    });
+  
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
+  }
   complain(){
-    this.http.post('/problem',{userNo:this.loginSession.getInfo().userNo,shopNo:this.shopNo,content:this.textareaValue})
+    this.http.post('/shop/problem',{userNo:this.loginSession.getInfo().user_no,shopNo:this.shopNo,content:this.textareaValue})
     .subscribe(d=>{
-      
+      this.presentToast();
+      this.showComplain = false;
     })
   }
 }

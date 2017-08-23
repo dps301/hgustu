@@ -50,6 +50,10 @@ export class BbqPage {
   detailData=0;
   row:any;
   col:any;
+  data:any={
+    purpose:"",
+    call:""
+  };
   constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService,
   private loginSession:LoginSession) {
   }
@@ -81,19 +85,19 @@ export class BbqPage {
         }
     });
   }
-  bbqReserve(data){
-    
+  bbqReserve(){
     var body ={
-      team:data.team,
-      purpose:data.purpose,
-      name:this.loginSession.getInfo().id,
+      team:this.data.team,
+      purpose:this.data.purpose,
+      name:this.loginSession.getInfo().name,
       num:this.loginSession.getInfo().stu_id,
-      call:data.call,
+      call:this.data.call,
       row:this.row,
       col:this.col
     }
     this.http.post('/reserve/bbq',body)
     .subscribe(()=>{
+      console.log("qw")
       this.load();
     })
   }
