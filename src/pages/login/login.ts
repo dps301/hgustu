@@ -26,19 +26,17 @@ export class LoginPage {
       this.goMain();
     }
 
-    if(!this.platform.is('mobileweb')) {
-      this.nativeStorage.getItem('userInfo')
-      .then(
-        data => {
-          alert(data.json());
-          this.loginSession.setInfo(data.json());
-          this.goMain();
-        },
-        error => {
-          console.log(error);
-        }
-      );
-    }
+    this.nativeStorage.getItem('userInfo')
+    .then(
+      data => {
+        alert(data.json());
+        this.loginSession.setInfo(data.json());
+        this.goMain();
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   login() {
@@ -47,24 +45,22 @@ export class LoginPage {
       data => {
         this.loginSession.setInfo(data.json());
         
-        if(this.saveChecked) {
-          this.nativeStorage.setItem('userInfo', this.loginSession.getInfo())
-          .then(
-            () => {
-              this.goMain();
-            },
-            error => console.error('Error storing item', error)
-          );
-        }
-        else {
-          this.nativeStorage.clear()
-          .then(
-            () => {
-              this.goMain();
-            },
-            error => console.error('Error clearing item', error)
-          );
-        }
+        this.nativeStorage.setItem('userInfo', this.loginSession.getInfo())
+        .then(
+          () => {
+            this.goMain();
+          },
+          error => console.error('Error storing item', error)
+        );
+        // else {
+        //   this.nativeStorage.clear()
+        //   .then(
+        //     () => {
+        //       this.goMain();
+        //     },
+        //     error => console.error('Error clearing item', error)
+        //   );
+        // }
       },
       error => {
         console.log(error.json());
