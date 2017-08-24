@@ -78,15 +78,14 @@ export class DavidPage {
         for(let i=0 ;i<24;i++ ){
           var arr = [];
           var chch:any;
-          for(let j=0 ;j<7;j++ ){
             chch = {reserve:false}
             for (let k= 0; k < this.bbqData.length; k++){
-              if (this.bbqData[k].row_number == i && this.bbqData[k].col_number == j ){
+              if (this.bbqData[k].row_number == i ){
                 chch = { reserve: true ,data : this.bbqData[k]};
               } 
             }
             arr.push(chch)
-          }
+          
           this.itemDetail.push(arr);
         }
     });
