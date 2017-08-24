@@ -20,8 +20,8 @@ import { CallNumber } from '@ionic-native/call-number';
   templateUrl: 'container.html',
 })
 export class ContainerPage {
-  page = [ReservePage,NoticePage,ComplainPage,CalendarPage,ShopPage,'','',FormPage];
   @ViewChild(Content) content: Content;
+  page = [ReservePage,NoticePage,ComplainPage,CalendarPage,ShopPage,'','',FormPage];
   sampleImg: Array<any> = ["http://52.78.230.42:3200/img/1.png", "http://52.78.230.42:3200/img/1.png" ,"assets/images/samples/3.png","assets/images/samples/4.png"];
   imgData:any=[];
   main: Array<any> = ["assets/images/container/2button_1.png",
@@ -53,18 +53,16 @@ export class ContainerPage {
     // browser.executeScript(data =>{
     //   console.log('s')
     // });
-    // this.content.resize();
     this.http.get('/mainImg')
     .subscribe(d=>{
       let img = d.json();
       for(let i = 0 ; i< img.length;i++){
         this.imgData.push({img:img[i].img})
       }
-    })
+    });
   }
 
   ionViewDidEnter() {
-    // this.content.resize();
   }
 
   move(link) {
