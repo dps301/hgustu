@@ -14,7 +14,13 @@
 
 
 <ion-content padding>
-  <div *ngFor="let com of complains" (click)="detail(com)">
-    {{com.title}}
+  <div class="title">
+    공지사항
   </div>
+  <ion-row class="item-row" *ngFor="let com of complains" (click)="detail(com)">
+    <ion-col class="idx">{{com.title}}</ion-col>
+  </ion-row>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

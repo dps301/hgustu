@@ -88,4 +88,27 @@ page-reserve {
             }
         }
     }
+    .item-row {
+        background: white;
+        text-align: center;
+        margin: 10px 10px;
+        padding: 10px 0px;
+        box-shadow: 4px 4px 15px 1px rgba(0, 0, 0, 0.14);
+        background: #f3f3f4;
+        ion-col {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &.idx {
+                color: #30995e;
+            }
+            &.name {
+                word-break: keep-all;
+            }
+            &.type, &.loca {
+                color: #959699;
+            }
+        }
+    }
 }

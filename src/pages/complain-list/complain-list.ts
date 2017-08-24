@@ -17,6 +17,8 @@ import { ComplainDetailPage } from "../complain-detail/complain-detail";
 })
 export class ComplainListPage {
   complains
+  offset: number = 0;
+  pageSize: number = 15;
   constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService) {
   }
 
@@ -24,12 +26,22 @@ export class ComplainListPage {
     this.load();
   }
   load() {
-    this.http.get('/complain?offset=0&pageSize=3')
+    this.http.get('/complain?offset=' + this.offset * this.pageSize + '&pageSize=' + this.pageSize)
     .subscribe(data =>{
         this.complains = data.json().data;
     })
   }
   detail(com){
     this.navCtrl.push(ComplainDetailPage,{com:com})
+  }
+  doInfinite(infiniteScroll) {
+    this.offset++;
+    
+    this.http.get('/complain?offset=' + this.offset * this.pageSize + '&pageSize=' + this.pageSize)
+    .subscribe(data =>{
+      this.complains = this.complains.concat(data.json().data);
+      console.log(this.complains);
+      infiniteScroll.complete();
+    });
   }
 }

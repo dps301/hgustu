@@ -11,12 +11,10 @@
         신청예약
       </div>
   <div class="title2">예약</div>
-  <ion-row class="item-row" (click) = godetail(0)>
-    <ion-col class="idx">바베큐 예약</ion-col>
+  <ion-row class="item-row2" (click) = godetail(0)>
+    <ion-col col-6  class="idx" (click) = godetail(0)><img src="assets/images/bbq.png"></ion-col>
+    <ion-col col-6 class="idx" (click) = godetail(1)><img src="assets/images/david.png"></ion-col>
   </ion-row>
-  <ion-row class="item-row" (click) = godetail(1)>
-      <ion-col class="idx">다윗의 장막 예약</ion-col>
-    </ion-row>
 
   <div class="title2">예약 현황</div>
   <ion-row class="item-row" (click) = detail(data.src) *ngFor="let data of reserves">
