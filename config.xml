@@ -91,4 +91,8 @@
     <plugin name="mx.ferreyra.callnumber" spec="~0.0.2" />
     <engine name="android" spec="~5.2.2" />
     <engine name="ios" spec="~4.2.1" />
+    <feature name="CDVWKWebViewEngine">
+        <param name="ios-package" value="CDVWKWebViewEngine" />
+    </feature>
+    <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
 </widget>
