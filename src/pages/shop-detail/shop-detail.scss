@@ -93,6 +93,11 @@ page-shop-detail {
                 flex-direction: row;
                 align-items: center;
                 justify-content: center;
+
+                a {
+                    display: flex;
+                    align-items: center;
+                }
     
                 img {
                     height: 20px;
