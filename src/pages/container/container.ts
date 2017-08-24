@@ -12,6 +12,7 @@ import { ComplainPage } from "../complain/complain";
 import { FormPage } from "../form/form";
 import { ToastController } from 'ionic-angular';
 import { HttpService } from "../../services/http.service";
+import { CallNumber } from '@ionic-native/call-number';
 
 @IonicPage()
 @Component({
@@ -42,7 +43,7 @@ export class ContainerPage {
   ];
   
   constructor(public navCtrl: NavController, public navParams: NavParams
-    ,private iab: InAppBrowser,private toastCtrl: ToastController, private http:HttpService
+    ,private iab: InAppBrowser,private toastCtrl: ToastController, private http:HttpService,
   ) {
   }
 
@@ -69,9 +70,9 @@ export class ContainerPage {
   move(link) {
     
     switch (link) { 
-      case 5: this.iab.create('http://seal.handong.edu/');
+      case 5: this.iab.create('http://seal.handong.edu/','_blank','location=yes');
       break;
-      case 6: this.iab.create('http://pedia.cafe24app.com/');
+      case 6: this.iab.create('http://pedia.cafe24app.com/','_blank','location=yes');
       break;
       case 8: this.presentToast();
       break;
@@ -83,11 +84,11 @@ export class ContainerPage {
     switch (link) { 
       case 0 : this.iab.create('http://stu.handong.edu/bus/ctest_week.php','_blank','location=no');
       break; 
-      case 1: this.iab.create('https://www.facebook.com/hgustugov/');
+      case 1: this.iab.create('https://www.facebook.com/hgustugov/','_blank','location=yes');
       break;
-      case 2: this.iab.create('http://stu.handong.edu/');
+      case 2: this.iab.create('http://stu.handong.edu/','_blank','location=yes');
       break;
-      case 3: window.open("tel:" + '0542601631');
+      case 3: window.open("tel:" + '0542601631', '_system', 'location=yes');
       break;
       case 4: this.moveCoupon();
       break;
