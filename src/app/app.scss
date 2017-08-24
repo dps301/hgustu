@@ -14,3 +14,18 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.page-header-title {
+    margin: 30px 0px;
+    font-size: 28px;
+    color: #207b4a;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+
+    img {
+        width: 50px;
+        height: auto;
+        margin-right: 10px;
+    }
+}

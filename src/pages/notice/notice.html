@@ -1,6 +1,6 @@
 <ion-content padding>
-    <div class="title">
-      공지사항
+    <div class="page-header-title">
+      <img src="assets/images/title/notice.png" alt=""> 공지사항
     </div>
     <ion-row class="item-row" (click) = detailNotice(data.title,data.content,data.regdate) *ngFor="let data of notices">
       <ion-col class="idx">{{data.title}}</ion-col>
