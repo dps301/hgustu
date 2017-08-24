@@ -28,12 +28,25 @@ page-david {
         color: white;
         text-align: center;
         height: 75px;
-        padding-top: 15px !important;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .right-col {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border: 1px solid #828386;
     }
 
     .right-row {
-        border-top: 1px solid #828386;
-        padding-top: 15px !important;
+        flex-grow: 1;
+        align-items: center;
+        height: 100%;
+        text-align: center;
         
         .number-index {
             margin-left: 8px;
@@ -65,7 +78,7 @@ page-david {
         transform: translate(-50%, -50%);
         background: #ffffff;
         border-top: 25px #30995e solid;
-        height: 180px;
+        height: 250px;
         width: 70%;
 
         display: flex;
@@ -73,19 +86,19 @@ page-david {
         align-items: center;
         justify-content: center;
         
-        .content {
-            div {
-                padding: 5px 0px;
-                text-align: center;
+        span {
+            margin: 10px 0px;
+
+            input {
+                margin: 0px 10px;
             }
         }
 
         .use-btn {
-            margin-top: 20px;
-            padding: 10px 0px;
+            margin: 0px 10px;
+            padding: 5px 5px;
             background: #30995e;
             color: white;
-            width: 45%;
             text-align: center;
         }
     }

@@ -2,14 +2,14 @@
     <div class="title" >
       바베큐
     </div>
-    <ion-item >
-        <ion-label (ionChange)="load()">DateTime</ion-label>
-        <ion-datetime (ionChange)="load()" displayFormat="YYYY MM DD" [(ngModel)]="orderDttm"></ion-datetime>
-      </ion-item>
+    <ion-item margin-bottom>
+      <ion-label (ionChange)="load()">일시</ion-label>
+      <ion-datetime (ionChange)="load()" displayFormat="YYYY-MM-DD" [(ngModel)]="orderDttm"></ion-datetime>
+    </ion-item>
     <ion-row>
-      <ion-col col-2 margin-left class="top-row">Table</ion-col>
+      <ion-col col-2 class="top-row"></ion-col>
       <ion-col>
-        <ion-row margin-left class="top-row">
+        <ion-row class="top-row">
           <ion-col>1</ion-col>
           <ion-col>2</ion-col>
           <ion-col>3</ion-col>
@@ -25,8 +25,8 @@
       <ion-col>
         <ion-row class="right-row">
           <ion-col *ngFor="let tem of itemDetail[i]; let j = index;">
-              <div *ngIf="tem.reserve==true" (click)="detailData2 = 1;cool=tem.data;">{{tem.data.group_name}}</div>
-              <div *ngIf="tem.reserve==false" (click)="detailData = 1;row=i;col=j">신청</div>
+            <div *ngIf="tem.reserve==true" (click)="detailData2 = 1;cool=tem.data;">{{tem.data.group_name}}</div>
+            <div *ngIf="tem.reserve==false" (click)="detailData = 1;row=i;col=j">신청</div>
           </ion-col>
         </ion-row>
       </ion-col>
@@ -35,14 +35,22 @@
       <span>단체:<input [(ngModel)]=data.team></span>
       <span>목적:<input [(ngModel)]=data.purpose></span>
       <span>연락처:<input [(ngModel)]=data.call></span>
-        <button (click)="bbqReserve()">예약</button>
-        <button (click)="detailData=0">취소</button>
+      <div margin-top>
+        <span class="use-btn" (click)="bbqReserve()">
+          예약
+        </span>
+        <span class="use-btn" (click)="detailData=0">
+          취소
+        </span>
+      </div>
     </div>
     <div *ngIf="detailData2 != 0" class="calendar-alert">
-      <span>단 체:{{cool.group_name}}</span>
+      <span>단 체: {{cool.group_name}}</span>
       <span>사용자: {{cool.student_name}}</span>
       <span>연락처: {{cool.phone_number}}</span>
-        <button (click)="detailData2=0">취소</button>
+      <span class="use-btn" margin-top (click)="detailData2=0">
+        취소
+      </span>
     </div>
     <div class="backdrop"  *ngIf="detailData != 0" (click)="detailData = 0"></div>
     <div class="backdrop"  *ngIf="detailData2 != 0" (click)="detailData2 = 0"></div>

@@ -65,27 +65,28 @@ page-bbq {
         transform: translate(-50%, -50%);
         background: #ffffff;
         border-top: 25px #30995e solid;
-        height: 180px;
+        height: 250px;
         width: 70%;
+        padding: 10px 0px;
 
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         
-        .content {
-            div {
-                padding: 5px 0px;
-                text-align: center;
+        span {
+            margin: 10px 0px;
+
+            input {
+                margin: 0px 10px;
             }
         }
 
         .use-btn {
-            margin-top: 20px;
-            padding: 10px 0px;
+            margin: 0px 10px;
+            padding: 5px 5px;
             background: #30995e;
             color: white;
-            width: 45%;
             text-align: center;
         }
     }

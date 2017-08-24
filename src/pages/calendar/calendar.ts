@@ -23,11 +23,13 @@ export class CalendarPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad CalendarPage');
   }
+
   detail(data) {
     console.log(data)
-      this.detailData = data;
+    this.detailData = data;
   }
-  choice(day ){
+
+  choice(day){
     this.choose = day;
   }
 }
