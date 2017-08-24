@@ -24,6 +24,7 @@ export class ShopDetailPage {
   
   constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService,
   private loginSession : LoginSession,private toastCtrl : ToastController) {
+    console.log(location.href)
   }
 
   ionViewDidLoad() {
