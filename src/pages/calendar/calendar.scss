@@ -65,18 +65,36 @@ page-calendar {
         transform: translate(-50%, -50%);
         background: #ffffff;
         border-top: 25px #30995e solid;
-        height: 180px;
+        height: 200px;
         width: 70%;
+        padding: 10px 20px;
 
         display: flex;
         flex-direction: column;
-        align-items: center;
         justify-content: center;
         
         .content {
             div {
                 padding: 5px 0px;
                 text-align: center;
+            }
+        }
+
+        .calendar-summury-title {
+            font-weight: 600;
+            margin: 5px 0px;
+        }
+
+        .detail {
+            .detail-title {
+                font-size: 18px;
+                font-weight: 600;
+            }
+            .detail-content {
+                font-size: 12px;
+                margin: 5px;
+                color: #cccdcf;
+                font-weight: 600;
             }
         }
 

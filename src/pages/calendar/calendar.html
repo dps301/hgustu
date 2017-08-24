@@ -32,12 +32,17 @@
     </ion-col>
   </ion-row>
   <div *ngIf="detailData != 0" class="calendar-alert">
-    <span *ngFor="let day of detailData">
-      <div (click)="choice(day)">{{day.title}}</div>
-    </span>
-    <div *ngIf="choose != 0">
-      {{choose.title}} {{choose.content}}
+    <ng-container *ngFor="let day of detailData; let i = index">
+      <div (click)="choice(day)" class="calendar-summury-title" *ngIf="choose == 0">{{i + 1}}. {{day.title}}</div>
+    </ng-container>
+    <div class="detail" *ngIf="choose != 0">
+      <div class="detail-title">
+        {{choose.title}}
+      </div>
+      <div class="detail-content">
+        {{choose.content}}
+      </div>
     </div>
   </div>
-  <div class="backdrop"  *ngIf="detailData != 0" (click)="detailData = 0"></div>
+  <div class="backdrop"  *ngIf="detailData != 0" (click)="detailData = 0; choose = 0;"></div>
 </ion-content>
