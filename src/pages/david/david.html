@@ -7,21 +7,15 @@
         <ion-datetime (ionChange)="load()" displayFormat="YYYY MM DD" [(ngModel)]="orderDttm"></ion-datetime>
       </ion-item>
     <ion-row>
-      <ion-col col-2 margin-left class="top-row">Table</ion-col>
+      <ion-col col-6 margin-left class="top-row">Table</ion-col>
       <ion-col>
         <ion-row margin-left class="top-row">
-          <ion-col>1</ion-col>
-          <ion-col>2</ion-col>
-          <ion-col>3</ion-col>
-          <ion-col>4</ion-col>
-          <ion-col>5</ion-col>
-          <ion-col>6</ion-col>
-          <ion-col>7</ion-col>    
+          <ion-col></ion-col>   
         </ion-row>
       </ion-col>
     </ion-row>
     <ion-row *ngFor="let item of item; let i = index">
-      <ion-col col-2 class="left-col">{{item}}</ion-col>
+      <ion-col col-6 class="left-col">{{item}}</ion-col>
       <ion-col>
         <ion-row class="right-row">
           <ion-col *ngFor="let tem of itemDetail[i]; let j = index;">
