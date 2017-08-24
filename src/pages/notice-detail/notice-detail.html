@@ -1,14 +1,9 @@
-<!--
-  Generated template for the NoticeDetailPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-
-
-<ion-content padding>
-    <div>{{title}}</div>
-    <div [innerHTML]="content| safeHtml"></div>
-    <!-- <div [innerHTML]="content"></div> -->
-    <div>{{regdate}}</div>
+<ion-content>
+  <div class="page-header-title">
+    <img src="assets/images/title/notice.png" alt=""> 공지
+  </div>
+  <div class="notice-content">
+    <div class="title">{{title}}</div>
+    <div [innerHTML]="content| safeHtml" class="content"></div>
+  </div>
 </ion-content>
