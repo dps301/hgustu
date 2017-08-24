@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpService } from "../../services/http.service";
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { BbqPage } from "../bbq/bbq";
+import { DavidPage } from "../david/david";
 
 /**
  * Generated class for the ReservePage page.
@@ -18,7 +19,7 @@ import { BbqPage } from "../bbq/bbq";
 })
 export class ReservePage {
   reserves
-  link = [BbqPage]
+  link = [BbqPage,DavidPage]
   constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService,private iab: InAppBrowser) {
     this.http.get('/reserve')
     .subscribe(data =>{
@@ -32,6 +33,7 @@ export class ReservePage {
   godetail(no){
     this.navCtrl.push(this.link[no])
   }
+  DavidPage
   detail(link){
     this.iab.create(link);
   }

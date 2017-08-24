@@ -4,7 +4,7 @@ import { HttpService } from "../../services/http.service";
 import { LoginSession } from "../../services/loginSession";
 
 /**
- * Generated class for the BbqPage page.
+ * Generated class for the DavidPage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
@@ -12,10 +12,10 @@ import { LoginSession } from "../../services/loginSession";
 
 @IonicPage()
 @Component({
-  selector: 'page-bbq',
-  templateUrl: 'bbq.html',
+  selector: 'page-david',
+  templateUrl: 'david.html',
 })
-export class BbqPage {
+export class DavidPage {
   item = [
     "00:00 ~ 01:00",
     "01:00 ~ 02:00",
@@ -70,7 +70,7 @@ export class BbqPage {
 
   load(){
     this.date = this.orderDttm.substr(0,4)+this.orderDttm.substr(5,2)+this.orderDttm.substr(8,2)
-    this.http.get('/reserve/bbq?date='+this.date)
+    this.http.get('/reserve/david?date='+this.date)
     .subscribe(data =>{
       this.itemDetail = [];
         this.bbqData = data.json().data;
@@ -102,7 +102,7 @@ export class BbqPage {
       col:this.col,
       date:this.date
     }
-    this.http.post('/reserve/bbq',body)
+    this.http.post('/reserve/david',body)
     .subscribe(()=>{
       this.detailData = 0;
       this.load();

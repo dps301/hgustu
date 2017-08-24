@@ -11,6 +11,7 @@ import { NoticePage } from "../notice/notice";
 import { ComplainPage } from "../complain/complain";
 import { FormPage } from "../form/form";
 import { ToastController } from 'ionic-angular';
+import { HttpService } from "../../services/http.service";
 
 @IonicPage()
 @Component({
@@ -20,7 +21,8 @@ import { ToastController } from 'ionic-angular';
 export class ContainerPage {
   page = [ReservePage,NoticePage,ComplainPage,CalendarPage,ShopPage,'','',FormPage];
   @ViewChild(Content) content: Content;
-
+  sampleImg: Array<any> = ["http://52.78.230.42:3200/img/1.png", "http://52.78.230.42:3200/img/1.png" ,"assets/images/samples/3.png","assets/images/samples/4.png"];
+  imgData:any=[];
   main: Array<any> = ["assets/images/container/2button_1.png",
   "assets/images/container/2button_2.png",
   "assets/images/container/2button_3.png",
@@ -40,7 +42,7 @@ export class ContainerPage {
   ];
   
   constructor(public navCtrl: NavController, public navParams: NavParams
-    ,private iab: InAppBrowser,private toastCtrl: ToastController
+    ,private iab: InAppBrowser,private toastCtrl: ToastController, private http:HttpService
   ) {
   }
 
@@ -51,6 +53,13 @@ export class ContainerPage {
     //   console.log('s')
     // });
     // this.content.resize();
+    this.http.get('/mainImg')
+    .subscribe(d=>{
+      let img = d.json();
+      for(let i = 0 ; i< img.length;i++){
+        this.imgData.push({img:img[i].img})
+      }
+    })
   }
 
   ionViewDidEnter() {

@@ -6,11 +6,20 @@
 --> 
 <ion-content>
   <div class="top-container">
-    <!-- <div class="logo">
+    <div class="logo">
       한동대학교 총학생회
-    </div> -->
+    </div>
+    <div class="store-images">
+        <ion-slides pager="true">
+            <ion-slide *ngFor="let im of imgData;">
+                <div class="img-container">
+                  <img [src]="im.img" alt="">
+                </div>
+            </ion-slide>
+          </ion-slides>
+      </div>
     <div class="gridbg">
-      <ion-row class="title-section">
+      <!-- <ion-row class="title-section">
         <ion-col col-4 (click)="move(0)">
           <div class="top-col-title" square>
             한동대학교 총학생회
@@ -21,8 +30,8 @@
             asdadas
           </div>
           <!-- <img src="main[1]" class="mainButton"> -->
-        </ion-col>
-      </ion-row>
+        <!-- </ion-col> -->
+      <!-- </ion-row> --> 
       <ion-row>
         <ion-col (click)="move(0)">
           <img src="assets/images/container/2button_1.png" class="mainButton">
