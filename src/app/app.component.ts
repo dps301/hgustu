@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Platform, App, AlertController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ContainerPage } from '../pages/container/container';
@@ -11,28 +11,53 @@ import { LoginSession } from '../services/loginSession';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  // rootPage:any = ContainerPage;
-  rootPage: any = LoginPage;
+  rootPage: any;
 
-
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private nativeStorage: NativeStorage, private loginSession: LoginSession) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private nativeStorage: NativeStorage, private loginSession: LoginSession, private app: App, private alertCtrl: AlertController) {
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
-      splashScreen.hide();
       
       this.nativeStorage.getItem('userInfo')
       .then(
         data => {
           this.loginSession.setInfo(data);
           this.rootPage = ContainerPage;
+          setTimeout(function() {
+            splashScreen.hide();
+          }, 1000);
         },
         error => {
           console.log(error);
+          this.rootPage = LoginPage;
+          setTimeout(function() {
+            splashScreen.hide();
+          }, 1000);
         }
       );
+
+      platform.registerBackButtonAction(
+        () => {
+          if (app.getRootNav().length() > 1) {
+              app.getRootNav().pop();
+          } 
+          else {
+            var prompt = alertCtrl.create({
+              message: "종료하시겠습니까?",
+              buttons: [
+                {
+                  text: '취소'
+                },
+                {
+                  text: '종료',
+                  handler: data => {
+                    platform.exitApp();
+                  }
+                }
+              ]
+            });
+            prompt.present();
+          }
+        });
     });
   }
 }
-
