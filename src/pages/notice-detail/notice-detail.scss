@@ -6,15 +6,16 @@ page-notice-detail {
 
     .notice-content {
         background: white;
-        border-top: #30995e 20px solid;
+        border-top: #45b97c 20px solid;
         margin: 0px 10px;
         padding: 30px 20px 10px 20px;
-
+        box-shadow: 4px 4px 15px 1px rgba(0, 0, 0, 0.23);
+        
         .title {
             font-size: 20px;
             padding: 0px 10px;
             padding-bottom: 20px;
-            border-bottom: #30995e 2px solid;
+            border-bottom: #45b97c 2px solid;
             font-weight: 600;
         }
         .content {

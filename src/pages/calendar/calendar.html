@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content [ngClass]="{'alert-open': detailData != 0}">
   <div class="title">
     달력
   </div>
@@ -24,7 +24,7 @@
           <div class="number-index">
             
           </div>
-          <div class="schedule-mark" *ngFor="let day of data" (click)="detail(data)">
+          <div class="schedule-mark" *ngFor="let day of data" (click)="detail(data)" [ngStyle]="{'background': day.rgb ? day.rgb : '#f0727a'}">
             {{day.title}}
           </div>
         </ion-col>

@@ -5,6 +5,9 @@
         <span>{{loca_choice == -1 ? '지역선택' : loca[loca_choice].name}}</span><ion-icon name="ios-play"></ion-icon>
       </div>
       <div class="box-content" *ngIf="show_loca">
+        <div (click)="loca_choice = -1; refresh(); show_loca = false">
+          전체
+        </div>
         <div *ngFor="let data of loca; let i = index" (click)="loca_choice = i; refresh(); show_loca = false">
           {{data.name}}
         </div>
@@ -15,6 +18,9 @@
         <span>{{type_choice == -1 ? '업종분류' : type[type_choice].name}}</span><ion-icon name="ios-play"></ion-icon>
       </div>
       <div class="box-content" *ngIf="show_type">
+        <div (click)="type_choice = -1; refresh(); show_type = false">
+          전체
+        </div>
         <div *ngFor="let data of type; let i = index" (click)="type_choice = i; refresh(); show_type = false">
           {{data.name}}
         </div>

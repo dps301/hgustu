@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content [ngClass]="{'alert-open': couponDetail != 0}">
   <div class="page-header-title">
     <img src="assets/images/title/coupon.png" alt="">My Coupon
   </div>
@@ -27,11 +27,9 @@
         <div>{{couponDetail.amt | number}}</div>
         <div>{{dt(couponDetail.expDttm)}}</div>
       </div>
-      <div class="use-btn" (click)="useCoupon(couponDetail.coupon_no)">
+      <div class="use-btn" (click)="useCoupon(couponDetail.no)">
         사용하기
       </div>
     </div>
-    <div class="backdrop" *ngIf="couponDetail != 0" (click)="couponDetail = 0">
-      
-    </div>
+    <div class="backdrop" *ngIf="couponDetail != 0" (click)="couponDetail = 0"></div>
 </ion-content>

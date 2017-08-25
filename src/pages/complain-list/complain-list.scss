@@ -6,7 +6,7 @@ page-complain-list {
     .title {
         margin: 30px 0px;
         font-size: 28px;
-        color: #207b4a;
+        color: #45b97c;
     }
     .item-row {
         background: white;
@@ -31,5 +31,21 @@ page-complain-list {
                 color: #959699;
             }
         }
+    }
+
+    .float-btn {
+        position: fixed;
+        right: 10%;
+        bottom: 5%;
+        width: 65px;
+        height: 65px;
+        line-height: 65px;
+        text-align: center;
+        z-index: 1000;
+        background: #45b97c;
+        color: white;
+        font-size: 40px;
+        border-radius: 50%;
+        box-shadow: 4px 4px 15px 1px rgba(0, 0, 0, 0.23);
     }
 }
