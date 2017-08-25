@@ -22,7 +22,7 @@
       <ion-row class="right-row">
         <ion-col *ngFor="let data of weekData.week; let j = index;">
           <div class="number-index">
-            29
+            
           </div>
           <div class="schedule-mark" *ngFor="let day of data" (click)="detail(data)">
             {{day.title}}
@@ -41,6 +41,9 @@
       </div>
       <div class="detail-content">
         {{choose.content}}
+      </div>
+      <div class="detail-content" *ngIf="choose.link!=null">
+        자세한 정보 : {{choose.link}}
       </div>
     </div>
   </div>

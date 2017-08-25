@@ -56,6 +56,11 @@ export class BbqPage {
     purpose:"",
     call:""
   };
+  Sstart="";
+  Send="";
+
+  start:any;
+  end:any;
   orderDttm:any = new Date().toISOString().substr(0,10);
   constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService,
   private loginSession:LoginSession) {
@@ -65,31 +70,47 @@ export class BbqPage {
   //   this.load();
   // }
   ionViewDidLoad() {
-    this.load();
+    this.dateConfirm();
+    
   }
 
-  load(){
-    this.date = this.orderDttm.substr(0,4)+this.orderDttm.substr(5,2)+this.orderDttm.substr(8,2)
-    this.http.get('/reserve/bbq?date='+this.date)
+  dateConfirm(){
+    this.http.get('/reserve/bbq/limit')
     .subscribe(data =>{
-      this.itemDetail = [];
-        this.bbqData = data.json().data;
-        
-        for(let i=0 ;i<24;i++ ){
-          var arr = [];
-          var chch:any;
-          for(let j=0 ;j<7;j++ ){
-            chch = {reserve:false}
-            for (let k= 0; k < this.bbqData.length; k++){
-              if (this.bbqData[k].row_number == i && this.bbqData[k].col_number == j ){
-                chch = { reserve: true ,data : this.bbqData[k]};
-              } 
+      this.start = data.json().data[0].start_date
+      this.end = data.json().data[0].end_date
+      this.Sstart = this.start.substr(0,4)+this.start.substr(5,2)+this.start.substr(8,2)
+      this.Send = this.end.substr(0,4)+this.end.substr(5,2)+this.end.substr(8,2)
+      console.log(this.orderDttm,this.end, this.start)
+      console.log("결과",this.orderDttm>this.start && this.orderDttm <this.end)
+      this.load();
+    })
+  }
+  load(){
+    
+      this.date = this.orderDttm.substr(0,4)+this.orderDttm.substr(5,2)+this.orderDttm.substr(8,2)
+      this.http.get('/reserve/bbq?date='+this.date)
+      .subscribe(data =>{
+        this.itemDetail = [];
+          this.bbqData = data.json().data;
+          
+          for(let i=0 ;i<24;i++ ){
+            var arr = [];
+            var chch:any;
+            for(let j=0 ;j<7;j++ ){
+              chch = {reserve:false}
+              for (let k= 0; k < this.bbqData.length; k++){
+                if (this.bbqData[k].row_number == i && this.bbqData[k].col_number == j ){
+                  chch = { reserve: true ,data : this.bbqData[k]};
+                } 
+              }
+              arr.push(chch)
             }
-            arr.push(chch)
+            this.itemDetail.push(arr);
           }
-          this.itemDetail.push(arr);
-        }
-    });
+      });
+    
+    
   }
   bbqReserve(){
     var body ={
@@ -102,10 +123,18 @@ export class BbqPage {
       col:this.col,
       date:this.date
     }
-    this.http.post('/reserve/bbq',body)
-    .subscribe(()=>{
-      this.detailData = 0;
-      this.load();
-    })
+    console.log(this.date>this.Sstart && this.date <this.Send)
+    console.log(this.date,this.start,this.end)
+    if(this.date>=this.Sstart && this.date <=this.Send){
+      this.http.post('/reserve/bbq',body)
+      .subscribe(()=>{
+        this.detailData = 0;
+        this.load();
+      })
+    } else {
+      alert(`불가능한 날짜입니다 ${this.start}~${this.end} 사이로 선택해 주세요`)
+    }
+
+    
   }
 }
