@@ -14,7 +14,7 @@ page-coupon-list {
         padding: 7px 0px;
 
         &.row-header {
-            background: #30995e;
+           background: #45b97c;
             color: white;
         }
         &.row-content {
@@ -25,7 +25,7 @@ page-coupon-list {
         text-align: center;
 
         &.index {
-            color: #30995e;
+            color: #45b97c;
         }
         &.name {
             color: black;
@@ -42,7 +42,7 @@ page-coupon-list {
         left: 50%;
         transform: translate(-50%, -50%);
         background: #ffffff;
-        border: 8px #30995e solid;
+        border: 8px #45b97c solid;
         border-radius: 20px;
         height: 200px;
         width: 80%;
@@ -62,7 +62,7 @@ page-coupon-list {
         .use-btn {
             margin-top: 20px;
             padding: 10px 0px;
-            background: #30995e;
+           background: #45b97c;
             color: white;
             width: 45%;
             text-align: center;

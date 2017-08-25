@@ -4,7 +4,7 @@ page-shop {
     }
 
     .select-section {
-        background: #30995e;
+       background: #45b97c;
         display: flex;
         align-items: center;
         justify-content: space-around;
@@ -17,7 +17,7 @@ page-shop {
 
             .box-btn {
                 background: #f3f3f4;
-                color: #30995e;
+                color: #45b97c;
                 padding: 10px 20px;
                 display: flex;
                 justify-content: space-between;
@@ -31,7 +31,7 @@ page-shop {
                 position: absolute;
                 margin-top: 5px;
                 background: white;
-                border: #30995e 3px solid;
+                border: #45b97c 3px solid;
                 z-index: 100;
                 padding: 0px 2px;
                 box-shadow: 4px 4px 15px 1px rgba(0, 0, 0, 0.14);
@@ -66,7 +66,7 @@ page-shop {
             justify-content: center;
 
             &.idx {
-                color: #30995e;
+                color: #45b97c;
             }
             &.name {
                 word-break: keep-all;

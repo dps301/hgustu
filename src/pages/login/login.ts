@@ -23,7 +23,7 @@ export class LoginPage {
   ionViewDidLoad() {
     if(this.platform.is('mobileweb')) {
       this.loginSession.setInfo({user_no: 79738, name: "신대호", stu_id: "21100366", call: null});
-      // this.goMain();
+      this.goMain();
     }
   }
 
