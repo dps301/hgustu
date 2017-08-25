@@ -1,48 +1,48 @@
-<ion-content>
-    <div class="title" >
-      다윗의 장막
+<ion-content [ngClass]="{'alert-open': detailData != 0 || detailData2 != 0}">
+  <div class="title" >
+    다윗의 장막
+  </div>
+  <ion-item >
+      <ion-label (ionChange)="load()">일시</ion-label>
+      <ion-datetime (ionChange)="load()" displayFormat="YYYY-MM-DD" [(ngModel)]="orderDttm"></ion-datetime>
+    </ion-item>
+  <ion-row>
+    <ion-col col-6 margin-left class="top-row"></ion-col>
+    <ion-col>
+      <ion-row margin-left class="top-row">
+        <ion-col></ion-col>   
+      </ion-row>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngFor="let item of item; let i = index">
+    <ion-col col-4 class="left-col">{{item}}</ion-col>
+    <ion-col class="right-col">
+      <ion-row class="right-row">
+        <ion-col *ngFor="let tem of itemDetail[i]; let j = index;">
+          <div *ngIf="tem.reserve == true" (click)="detailData2 = 1; cool=tem.data;">{{tem.data.group_name}}</div>
+          <div *ngIf="tem.reserve == false" (click)="detailData = 1; row=i;col=j">신청</div>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+  <div *ngIf="detailData != 0" class="calendar-alert">
+    <span>단체:<input [(ngModel)]=data.team></span>
+    <span>목적:<input [(ngModel)]=data.purpose></span>
+    <span>연락처:<input [(ngModel)]=data.call></span>
+    <div margin-top>
+      <span class="use-btn" (click)="bbqReserve()">예약</span>
+      <span class="use-btn" (click)="detailData=0">취소</span>
     </div>
-    <ion-item >
-        <ion-label (ionChange)="load()">일시</ion-label>
-        <ion-datetime (ionChange)="load()" displayFormat="YYYY-MM-DD" [(ngModel)]="orderDttm"></ion-datetime>
-      </ion-item>
-    <ion-row>
-      <ion-col col-6 margin-left class="top-row"></ion-col>
-      <ion-col>
-        <ion-row margin-left class="top-row">
-          <ion-col></ion-col>   
-        </ion-row>
-      </ion-col>
-    </ion-row>
-    <ion-row *ngFor="let item of item; let i = index">
-      <ion-col col-4 class="left-col">{{item}}</ion-col>
-      <ion-col class="right-col">
-        <ion-row class="right-row">
-          <ion-col *ngFor="let tem of itemDetail[i]; let j = index;">
-            <div *ngIf="tem.reserve == true" (click)="detailData2 = 1; cool=tem.data;">{{tem.data.group_name}}</div>
-            <div *ngIf="tem.reserve == false" (click)="detailData = 1; row=i;col=j">신청</div>
-          </ion-col>
-        </ion-row>
-      </ion-col>
-    </ion-row>
-    <div *ngIf="detailData != 0" class="calendar-alert">
-      <span>단체:<input [(ngModel)]=data.team></span>
-      <span>목적:<input [(ngModel)]=data.purpose></span>
-      <span>연락처:<input [(ngModel)]=data.call></span>
-      <div margin-top>
-        <span class="use-btn" (click)="bbqReserve()">예약</span>
-        <span class="use-btn" (click)="detailData=0">취소</span>
-      </div>
-    </div>
-    <div *ngIf="detailData2 != 0" class="calendar-alert">
-      <span>단 체: {{cool.group_name}}</span>
-      <span>사용자: {{cool.student_name}}</span>
-      <span>연락처: {{cool.phone_number}}</span>
-      <span class="use-btn" margin-top (click)="detailData2=0">
-        취소
-      </span>
-    </div>
-    <div class="backdrop"  *ngIf="detailData != 0" (click)="detailData = 0"></div>
-    <div class="backdrop"  *ngIf="detailData2 != 0" (click)="detailData2 = 0"></div>
-  </ion-content>
+  </div>
+  <div *ngIf="detailData2 != 0" class="calendar-alert">
+    <span>단 체: {{cool.group_name}}</span>
+    <span>사용자: {{cool.student_name}}</span>
+    <span>연락처: {{cool.phone_number}}</span>
+    <span class="use-btn" margin-top (click)="detailData2=0">
+      취소
+    </span>
+  </div>
+  <div class="backdrop" *ngIf="detailData != 0" (click)="detailData = 0"></div>
+  <div class="backdrop" *ngIf="detailData2 != 0" (click)="detailData2 = 0"></div>
+</ion-content>
   

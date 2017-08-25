@@ -2,9 +2,17 @@ page-bbq {
     ion-col, ion-row {
         padding: 0 !important;
     }
+    
     .scroll-content {
         background: #f3f3f4;
         padding: 0px 0px 0px 0px;
+    }
+
+    .alert-open {
+        .scroll-content {
+            overflow: hidden !important;
+            position: fixed !important;
+        }
     }
 
     .title {

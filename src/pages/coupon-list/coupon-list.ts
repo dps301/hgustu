@@ -10,7 +10,6 @@ import { LoginSession } from "../../services/loginSession";
 })
 export class CouponListPage {
   coupons: any = [];
-  userNo: any;
   couponDetail: any = 0;
   constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService,
     private loginSession:LoginSession) {
@@ -22,7 +21,6 @@ export class CouponListPage {
   }
 
   load() {
-    this.userNo = this.navParams.get('userNo');
     this.http.get('/coupon?userNo='+this.loginSession.getInfo().user_no)
     .subscribe(data =>{
         this.coupons = data.json();
@@ -35,7 +33,7 @@ export class CouponListPage {
     return date.substring(0, 10)
   }
   useCoupon(no) {
-    this.http.put('/coupon/use',{userNo:1,couponNo:no})
+    this.http.put('/coupon/use', {userNo: this.loginSession.getInfo().user_no, no: no})
     .subscribe(data =>{
       this.load();
       this.couponDetail = 0;

@@ -2,13 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpService } from "../../services/http.service";
 import { ComplainDetailPage } from "../complain-detail/complain-detail";
-
-/**
- * Generated class for the ComplainListPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { ComplainWritePage } from '../complain-write/complain-write';
 
 @IonicPage()
 @Component({
@@ -43,5 +37,9 @@ export class ComplainListPage {
       console.log(this.complains);
       infiniteScroll.complete();
     });
+  }
+
+  goWrite() {
+    this.navCtrl.push(ComplainWritePage);
   }
 }

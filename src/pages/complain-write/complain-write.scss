@@ -1,0 +1,40 @@
+page-complain-write {
+    .scroll-content {
+        background: #f3f3f4;
+        padding: 10px;
+    }
+
+    .notice-content {
+        background: white;
+        border-top: #30995e 20px solid;
+        margin: 0px 10px;
+        padding: 30px 20px 10px 20px;
+        box-shadow: 4px 4px 15px 1px rgba(0, 0, 0, 0.23);
+        
+        .item-row {
+            display: flex;
+            flex-direction: column;
+            .item-title {
+                margin-top: 20px;
+                color: #7f8082;
+                font-weight: 600;
+            }
+            input, textarea {
+                width: 100%;
+                background: #f5f5f7;
+                border: 1px solid #e7e8e9;
+                margin-top: 5px;
+            }
+            input {
+                padding: 5px;
+            }
+            textarea {
+                
+            }
+        }
+
+        .submit-btn {
+
+        }
+    }
+}

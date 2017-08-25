@@ -8,7 +8,7 @@ export class HttpService {
     constructor(private http: Http, private server:ServerAddr) { }
     public server_addr = ServerAddr.getServerAddr();
 
-    headers = new Headers({ 'Content-Type': 'application/json', 'userNo': '1' });
+    headers = new Headers({ 'Content-Type': 'application/json'});
     options = new RequestOptions({ headers: this.headers });
 
     public post(url: string, body = {}, params = {}): Observable<Response> {
@@ -45,11 +45,5 @@ export class HttpService {
         }
         this.options.search = parameters;
         return this.http.get(this.server_addr + url, this.options);
-    }
-
-    public setHeader(userNo) {
-        this.headers = new Headers({ 'Content-Type': 'application/json', 'userNo': '1' });
-        // this.headers = new Headers({ 'Content-Type': 'application/json', 'userNo': userNo });
-        this.options = new RequestOptions({ headers: this.headers });
     }
 }

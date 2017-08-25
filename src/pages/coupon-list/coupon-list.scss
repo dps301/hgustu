@@ -3,6 +3,12 @@ page-coupon-list {
         background: #f3f3f4;
         padding: 0px 15px;
     }
+    .alert-open {
+        .scroll-content {
+            overflow: hidden !important;
+            position: fixed !important;
+        }
+    }
     ion-row {
         margin: 10px 0px;
         padding: 7px 0px;

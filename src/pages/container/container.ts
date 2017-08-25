@@ -42,9 +42,7 @@ export class ContainerPage {
     "assets/images/container/4bottom_5-01.png",
   ];
   
-  constructor(public navCtrl: NavController, public navParams: NavParams
-    ,private iab: InAppBrowser,private toastCtrl: ToastController, private http:HttpService,
-  ) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private iab: InAppBrowser,private toastCtrl: ToastController, private http:HttpService) {
   }
 
   ionViewDidLoad() {
@@ -94,7 +92,7 @@ export class ContainerPage {
   }
   presentToast() {
     let toast = this.toastCtrl.create({
-      message: '준비 중 인 서비스입니다.',
+      message: '준비중인 서비스입니다.',
       duration: 3000,
       position: 'bottom'
     });
@@ -107,7 +105,7 @@ export class ContainerPage {
   }
 
   moveCoupon() {
-    this.navCtrl.push(CouponListPage, {userNo:1});
+    this.navCtrl.push(CouponListPage);
   }
 
   resize() {
