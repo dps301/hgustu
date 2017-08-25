@@ -53,8 +53,8 @@
       </ion-col>
     </ion-row>
   </ion-grid> -->
-  <ion-row class="item-row" (click) = detail(data.shopNo) *ngFor="let data of datas">
-    <ion-col col-1 class="idx">{{data.shopNo}}</ion-col>
+  <ion-row class="item-row" (click) = detail(data.shopNo) *ngFor="let data of datas;let i = index;">
+    <ion-col col-1 class="idx">{{i}}</ion-col>
     <ion-col col-7 class="name">{{data.name}}</ion-col>
     <ion-col col-2 class="type">{{data.type}} </ion-col>
     <ion-col col-2 class="loca">{{data.loca}}</ion-col>
