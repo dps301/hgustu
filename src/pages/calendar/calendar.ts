@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpService } from '../../services/http.service';
+import { InAppBrowser } from "@ionic-native/in-app-browser";
 
 @IonicPage()
 @Component({
@@ -12,7 +13,7 @@ export class CalendarPage {
   item:any;
   detailData:any=0;
   choose:any=0;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService,private iab: InAppBrowser) {
     this.http.get('/calendar')
     .subscribe(data =>{
         this.calendar = data.json();
@@ -31,5 +32,8 @@ export class CalendarPage {
 
   choice(day){
     this.choose = day;
+  }
+  open(link){
+    this.iab.create(link,'_blank','location=yes');
   }
 }

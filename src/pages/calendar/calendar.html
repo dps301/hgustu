@@ -42,8 +42,8 @@
       <div class="detail-content">
         {{choose.content}}
       </div>
-      <div class="detail-content" *ngIf="choose.link!=null">
-        자세한 정보 : {{choose.link}}
+      <div class="detail-content" *ngIf="choose.link!=null" (click)="open(choose.link)">
+        자세한 정보 보기
       </div>
     </div>
   </div>
