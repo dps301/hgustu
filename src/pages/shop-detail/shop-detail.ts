@@ -95,7 +95,7 @@ export class ShopDetailPage {
     toast.present();
   }
   complain(){
-    this.http.post('/shop/problem',{userNo:this.loginSession.getInfo().user_no,shopNo:this.shopNo,content:this.textareaValue})
+    this.http.post('/shop/problem',{userNo:this.loginSession.getInfo().user_no, shopNo:this.shopNo, content:this.textareaValue})
     .subscribe(d=>{
       this.presentToast();
       this.showComplain = false;
