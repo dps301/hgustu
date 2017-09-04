@@ -18,13 +18,13 @@
   <ion-row class="row-content" (click)="detail(coupon)" *ngFor="let coupon of coupons; let i = index">
     <ion-col col-1 class="index">{{i + 1}}</ion-col>
     <ion-col col-4 class="name">{{coupon.shopName}}</ion-col>
-    <ion-col col-3 class="amt">{{coupon.amt | number}}</ion-col>
+    <ion-col col-3 class="amt">{{coupon.amt}}</ion-col>
     <ion-col col-3 class="amt">{{dt(coupon.expDttm)}}</ion-col>
     </ion-row>
     <div class="coupon-alert" *ngIf="couponDetail != 0">
       <div class="content">
         <div>{{couponDetail.shopName}}</div>
-        <div>{{couponDetail.amt | number}}</div>
+        <div>{{couponDetail.amt}}</div>
         <div>{{dt(couponDetail.expDttm)}}</div>
       </div>
       <div class="use-btn" (click)="useCoupon(couponDetail.no)">

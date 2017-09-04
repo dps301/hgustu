@@ -51,8 +51,14 @@ export class LoginPage {
         // }
       },
       error => {
-        console.log(error.json());
-        this.presentToast();
+        let no = error.json().no;
+        if(no == -1 ){
+          this.presentToast("비밀번호가 틀렸습니다. 확인 후 다시 로그인을 시도해주세요");
+        } else if (no==0){
+          this.presentToast("존재하지 않는 회원정보입니다. 총학생회 홈페이지(stu.handong.edu)에서 회원가입을 하신 후 다시 로그인 시도를 해주세요");
+        } else {
+          this.presentToast("존재하지 않는 회원정보입니다. 총학생회 홈페이지(stu.handong.edu)에서 회원가입을 하신 후 다시 로그인 시도를 해주세요");
+        }
       }
     );
   }
@@ -61,15 +67,15 @@ export class LoginPage {
     this.navCtrl.setRoot(ContainerPage);
   }
 
-  presentToast() {
+  presentToast(str) {
     let toast = this.toast.create({
-      message: '로그인 실패. 문제가 지속될 시 서비스 관리자에게 문의해주세요.',
+      message: str,
       duration: 3000,
       position: 'bottom'
     });
 
     toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
+      // console.log('Dismissed toast');
     });
 
     toast.present();

@@ -10,7 +10,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { NoticePage } from "../notice/notice";
 import { ComplainPage } from "../complain/complain";
 import { FormPage } from "../form/form";
-import { ToastController } from 'ionic-angular';
+import { ToastController, Slides } from 'ionic-angular';
 import { HttpService } from "../../services/http.service";
 import { CallNumber } from '@ionic-native/call-number';
 
@@ -21,6 +21,7 @@ import { CallNumber } from '@ionic-native/call-number';
 })
 export class ContainerPage {
   @ViewChild(Content) content: Content;
+  @ViewChild(Slides) slides: Slides;
   page = [ReservePage,NoticePage,ComplainPage,CalendarPage,ShopPage,'','',FormPage];
   sampleImg: Array<any> = ["http://52.78.230.42:3200/img/1.png", "http://52.78.230.42:3200/img/1.png" ,"assets/images/samples/3.png","assets/images/samples/4.png"];
   imgData:any=[];
@@ -44,7 +45,10 @@ export class ContainerPage {
   
   constructor(public navCtrl: NavController, public navParams: NavParams, private iab: InAppBrowser,private toastCtrl: ToastController, private http:HttpService) {
   }
-
+  goToSlide() {
+    this.slides.slideTo(1, 10);
+  }
+  
   ionViewDidLoad() {
     // this.navCtrl.push(CalendarPage);
     
