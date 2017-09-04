@@ -23,8 +23,7 @@ export class ContainerPage {
   @ViewChild(Content) content: Content;
   @ViewChild(Slides) slides: Slides;
   page = [ReservePage,NoticePage,ComplainPage,CalendarPage,ShopPage,'','',FormPage];
-  sampleImg: Array<any> = ["http://52.78.230.42:3200/img/1.png", "http://52.78.230.42:3200/img/1.png" ,"assets/images/samples/3.png","assets/images/samples/4.png"];
-  imgData:any=[];
+  imgData: Array<any> = [];
   main: Array<any> = ["assets/images/container/2button_1.png",
   "assets/images/container/2button_2.png",
   "assets/images/container/2button_3.png",
@@ -42,33 +41,41 @@ export class ContainerPage {
     "assets/images/container/4bottom_4-01.png",
     "assets/images/container/4bottom_5-01.png",
   ];
+  mainImg: string = null;
+  mainImgIdx: number = 0;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, private iab: InAppBrowser,private toastCtrl: ToastController, private http:HttpService) {
   }
-  goToSlide() {
-    this.slides.slideTo(1, 10);
-  }
-  
-  ionViewDidLoad() {
-    // this.navCtrl.push(CalendarPage);
-    
-    // browser.executeScript(data =>{
-    //   console.log('s')
-    // });
-    this.http.get('/mainImg')
-    .subscribe(d=>{
-      let img = d.json();
-      for(let i = 0 ; i< img.length;i++){
-        this.imgData.push({img:img[i].img})
-      }
-    });
-  }
 
-  ionViewDidEnter() {
+  ionViewDidLoad() {
+    this.http.get('/mainImg')
+    .subscribe(
+      d => {
+        let img = d.json();
+        for(let i = 0 ; i < img.length; i++) {
+          this.imgData.push({img: img[i].img});
+        }
+        
+        if(this.imgData.length > 0) {
+          this.mainImg = this.imgData[this.mainImgIdx].img;
+          setInterval(
+            () => {
+              this.mainImg = this.imgData[this.mainImgIdx].img;
+              this.mainImgIdx++;
+              if(this.mainImgIdx == this.imgData.length)
+                this.mainImgIdx = 0;
+            },
+            5000
+          );
+        }
+        else {
+          this.mainImg = 'assets/images/hgu.jpg';
+        }
+      }
+    );
   }
 
   move(link) {
-    
     switch (link) { 
       case 5: this.iab.create('http://seal.handong.edu/','_blank','location=yes');
       break;
@@ -78,8 +85,8 @@ export class ContainerPage {
       break;
       default : this.navCtrl.push(this.page[link]);
     }
-    
-    }
+  }
+
   moveBottom(link) {
     switch (link) { 
       case 0 : this.iab.create('http://stu.handong.edu/bus/ctest_week.php','_blank','location=no');
@@ -94,6 +101,7 @@ export class ContainerPage {
       break;
     }
   }
+
   presentToast() {
     let toast = this.toastCtrl.create({
       message: '준비중인 서비스입니다.',
