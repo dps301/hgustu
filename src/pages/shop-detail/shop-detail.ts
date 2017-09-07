@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { HttpService } from '../../services/http.service';
 import { Slides, ToastController } from 'ionic-angular';
 import { LoginSession } from "../../services/loginSession";
+import { ShopComplainPage } from '../shop-complain/shop-complain';
 
 declare var naver: any;
 
@@ -21,6 +22,7 @@ export class ShopDetailPage {
   marker: any;
   infoWindow: any;
   showComplain: boolean = false;
+  textareaValue = '';
   
   constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService,
   private loginSession : LoginSession,private toastCtrl : ToastController) {
@@ -40,8 +42,6 @@ export class ShopDetailPage {
         this.map = new naver.maps.Map('map', this.mapOptions);
         this.setMarker(this.datas.x, this.datas.y,this.datas.name,this.datas.call);
     });
-
-    
   }
 
   setMarker(lat, lng,name, call) {
@@ -59,7 +59,6 @@ export class ShopDetailPage {
       borderWidth: 1,
       borderColor: "#A3BDD7",
     });
-
     naver.maps.Event.addListener(this.marker, 'click', this.getClickHandler());
   }
 
@@ -73,7 +72,7 @@ export class ShopDetailPage {
       }
     }
   }
-  private textareaValue = '';
+  
   doTextareaValueChange(ev) {
     try {
       this.textareaValue = ev.target.value;
@@ -81,6 +80,7 @@ export class ShopDetailPage {
       console.info('could not set textarea-value');
     }
   }
+
   presentToast() {
     let toast = this.toastCtrl.create({
       message: '감사합니다!',
@@ -94,11 +94,16 @@ export class ShopDetailPage {
   
     toast.present();
   }
+
   complain(){
     this.http.post('/shop/problem',{userNo:this.loginSession.getInfo().user_no, shopNo:this.shopNo, content:this.textareaValue})
     .subscribe(d=>{
       this.presentToast();
       this.showComplain = false;
     })
+  }
+
+  goComplain() {
+    this.navCtrl.push(ShopComplainPage);
   }
 }

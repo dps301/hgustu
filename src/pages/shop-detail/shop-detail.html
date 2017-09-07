@@ -31,48 +31,46 @@
       <div class="btn">
         <a href="tel:{{datas.call}}"><img src="assets/images/button_call.png" alt="">전화하기</a>
       </div>
-      <div class="btn" (click)="showComplain = !showComplain">
-        <img src="assets/images/button_ask.png" alt="">{{showComplain ? '건의취소' : '건의하기'}}
+      <div class="btn" (click)="goComplain()">
+        <img src="assets/images/button_ask.png" alt="">건의하기
       </div>
     </div>
-    <ng-container *ngIf="showComplain">
-      <div class="common-title">
-        <div class="title-text">
-          신청자
-        </div>
-        <div class="line-img">
-          <img src="assets/images/line.png" alt="">
-        </div>
+    <!-- <div class="common-title">
+      <div class="title-text">
+        신청자
       </div>
-      <div class="common-content">
-        {{loginSession.getInfo().name}}
+      <div class="line-img">
+        <img src="assets/images/line.png" alt="">
       </div>
-      <div class="common-title">
-        <div class="title-text">
-          업체명
-        </div>
-        <div class="line-img">
-          <img src="assets/images/line.png" alt="">
-        </div>
+    </div>
+    <div class="common-content">
+      {{loginSession.getInfo().name}}
+    </div>
+    <div class="common-title">
+      <div class="title-text">
+        업체명
       </div>
-      <div class="common-content">
-        {{datas.name}}
+      <div class="line-img">
+        <img src="assets/images/line.png" alt="">
       </div>
-      <div class="common-title">
-        <div class="title-text">
-          건의내용
-        </div>
-        <div class="line-img">
-          <img src="assets/images/line.png" alt="">
-        </div>
+    </div>
+    <div class="common-content">
+      {{datas.name}}
+    </div>
+    <div class="common-title">
+      <div class="title-text">
+        건의내용
       </div>
-      <div class="common-content complain">
-        <textarea id="some-value" (change)="doTextareaValueChange($event)">{{textareaValue}}</textarea>
+      <div class="line-img">
+        <img src="assets/images/line.png" alt="">
       </div>
-      <div class="complain-btn" (click)="complain()">
-        <img src="assets/images/button_ask.png" alt=""> 건의하기
-      </div>
-    </ng-container>
+    </div>
+    <div class="common-content complain">
+      <textarea id="some-value" (change)="doTextareaValueChange($event)">{{textareaValue}}</textarea>
+    </div>
+    <div class="complain-btn" (click)="complain()">
+      <img src="assets/images/button_ask.png" alt=""> 건의하기
+    </div> -->
     <div class="common-title">
       <div class="title-text">
         기본정보
