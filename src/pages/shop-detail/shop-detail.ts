@@ -21,7 +21,6 @@ export class ShopDetailPage {
   mapOptions:any;
   marker: any;
   infoWindow: any;
-  showComplain: boolean = false;
   textareaValue = '';
   
   constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService,
@@ -72,38 +71,8 @@ export class ShopDetailPage {
       }
     }
   }
-  
-  doTextareaValueChange(ev) {
-    try {
-      this.textareaValue = ev.target.value;
-    } catch(e) {
-      console.info('could not set textarea-value');
-    }
-  }
-
-  presentToast() {
-    let toast = this.toastCtrl.create({
-      message: '감사합니다!',
-      duration: 3000,
-      position: 'bottom'
-    });
-  
-    toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
-    });
-  
-    toast.present();
-  }
-
-  complain(){
-    this.http.post('/shop/problem',{userNo:this.loginSession.getInfo().user_no, shopNo:this.shopNo, content:this.textareaValue})
-    .subscribe(d=>{
-      this.presentToast();
-      this.showComplain = false;
-    })
-  }
 
   goComplain() {
-    this.navCtrl.push(ShopComplainPage);
+    this.navCtrl.push(ShopComplainPage, {userNo: this.loginSession.getInfo().user_no, shopData: this.datas});
   }
 }
