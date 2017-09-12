@@ -1,0 +1,28 @@
+<ion-content>
+  <div class="page-header-title">
+    <img src="assets/images/title/complain.png" alt=""> 건의
+  </div>
+  <div class="notice-content">
+    <div class="item-row">
+      <div class="item-title">
+        신청자
+      </div>
+      <input disabled type="text" [(ngModel)]="loginSession.getInfo().name">
+    </div>
+    <div class="item-row">
+      <div class="item-title">
+        업체명
+      </div>
+      <input *ngIf="shopData" disabled type="text" [(ngModel)]="shopData.name">
+    </div>
+    <div class="item-row">
+      <div class="item-title">
+        건의내용
+      </div>
+      <textarea rows="" cols="" id="some-value" (change)="doTextareaValueChange($event)">{{textareaValue}}</textarea>
+    </div>
+    <div class="submit-btn" (click)="complain()">
+      제출
+    </div>
+  </div>
+</ion-content>
