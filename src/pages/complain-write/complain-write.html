@@ -7,21 +7,21 @@
       <div class="item-title">
         제목
       </div>
-      <input type="text">
+      <input type="text" [(ngModel)]="complain.title">
     </div>
-    <div class="item-row">
+    <!-- <div class="item-row">
       <div class="item-title">
         날짜
       </div>
       <input type="text">
-    </div>
+    </div> -->
     <div class="item-row">
       <div class="item-title">
         내용
       </div>
-      <textarea rows="" cols=""></textarea>
+      <textarea id="some-value" (change)="doTextareaValueChange($event)">{{complain.content}}</textarea>
     </div>
-    <div class="submit-btn">
+    <div class="submit-btn" (click)="submit()">
       제출
     </div>
   </div>

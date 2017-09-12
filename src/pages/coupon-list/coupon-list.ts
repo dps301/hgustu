@@ -11,6 +11,9 @@ import { LoginSession } from "../../services/loginSession";
 export class CouponListPage {
   coupons: any = [];
   couponDetail: any = 0;
+  couponDetail2: any = 0;
+  name  = this.loginSession.getInfo().name
+  stu_id  = this.loginSession.getInfo().stu_id
   constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpService,
     private loginSession:LoginSession) {
   }

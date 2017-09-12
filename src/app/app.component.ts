@@ -16,7 +16,7 @@ export class MyApp {
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private nativeStorage: NativeStorage, private loginSession: LoginSession, private app: App, private alertCtrl: AlertController) {
     platform.ready().then(() => {
       statusBar.styleDefault();
-      
+      statusBar.overlaysWebView(false);
       this.nativeStorage.getItem('userInfo')
       .then(
         data => {

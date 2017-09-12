@@ -21,8 +21,13 @@ import { NativeStorage } from '@ionic-native/native-storage';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp, {
-      swipeBackEnabled: 'true' //here it will help you to solve the swip
-     }, ),
+      swipeBackEnabled: 'true',
+      platforms: {
+        ios: {
+          statusbarPadding: true,
+        }
+      }
+     }),
     ContainerPageModule,
     HttpModule,
     LoginPageModule

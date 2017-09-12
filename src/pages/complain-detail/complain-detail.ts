@@ -23,5 +23,6 @@ export class ComplainDetailPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ComplainDetailPage');
   }
+  
 
 }

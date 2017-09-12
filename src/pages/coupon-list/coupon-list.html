@@ -2,6 +2,7 @@
   <div class="page-header-title">
     <img src="assets/images/title/coupon.png" alt="">My Coupon
   </div>
+  <div>{{stu_id}} {{name}}</div>
   <ion-row class="row-header">
     <ion-col col-1>
     </ion-col>
@@ -27,9 +28,17 @@
         <div>{{couponDetail.amt}}</div>
         <div>{{dt(couponDetail.expDttm)}}</div>
       </div>
+      <div class="use-btn" (click)="couponDetail2=1">
+        사용하기
+      </div>
+    </div>
+    <div class="coupon-alert" *ngIf="couponDetail2 != 0">
+      <div class="content">
+        <div>정말 사용하시겠습니까?</div>
+      </div>
       <div class="use-btn" (click)="useCoupon(couponDetail.no)">
         사용하기
       </div>
     </div>
-    <div class="backdrop" *ngIf="couponDetail != 0" (click)="couponDetail = 0"></div>
+    <div class="backdrop" *ngIf="couponDetail != 0" (click)="couponDetail = 0;couponDetail2 = 0"></div>
 </ion-content>
