@@ -79,7 +79,9 @@ export class ContainerPage {
     switch (link) { 
       case 5: this.iab.create('http://seal.handong.edu/','_blank','location=yes');
       break;
-      case 6: this.iab.create('http://pedia.cafe24app.com/','_blank','location=yes');
+      case 6: 
+      this.presentToast();
+      // this.iab.create('http://pedia.cafe24app.com/','_blank','location=yes');
       break;
       case 8: this.presentToast();
       break;

@@ -35,6 +35,6 @@ export class ReservePage {
   }
   DavidPage
   detail(link){
-    this.iab.create(link);
+    this.iab.create(link,'_blank','location=yes');
   }
 }

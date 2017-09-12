@@ -11,6 +11,7 @@ import { LoginSession } from '../../services/loginSession';
 export class ShopComplainPage {
   textareaValue = '';
   shopData: any = null;
+  tel:any = null;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpService, public toastCtrl: ToastController, private loginSession: LoginSession) {
   }
@@ -29,7 +30,7 @@ export class ShopComplainPage {
   }
   
   complain(){
-    this.http.post('/shop/problem', {userNo: this.loginSession.getInfo().user_no, shopNo: this.shopData.shopNo, content: this.textareaValue})
+    this.http.post('/shop/problem', {userNo: this.loginSession.getInfo().user_no, shopNo: this.shopData.shopNo, content: this.textareaValue,tel:this.tel})
     .subscribe( 
       d => {
         this.presentToast('감사합니다!');

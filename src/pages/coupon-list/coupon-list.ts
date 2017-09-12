@@ -40,6 +40,7 @@ export class CouponListPage {
     .subscribe(data =>{
       this.load();
       this.couponDetail = 0;
+      this.couponDetail2 = 0
     })
   }
 }

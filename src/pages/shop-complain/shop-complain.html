@@ -11,6 +11,12 @@
     </div>
     <div class="item-row">
       <div class="item-title">
+        연락처
+      </div>
+      <input type="text" [(ngModel)]="tel">
+    </div>
+    <div class="item-row">
+      <div class="item-title">
         업체명
       </div>
       <input *ngIf="shopData" disabled type="text" [(ngModel)]="shopData.name">
